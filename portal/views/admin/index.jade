@@ -1,0 +1,16 @@
+.row
+	.col-md-3
+		div.list-group
+			a.list-group-item(ng-href='#/') Quản lý xe
+			a.list-group-item(ng-href='#/') Quản lý chỗ ngồi
+			a.list-group-item(ng-href='#/') Quản lý nhân viên
+
+	.col-md-9
+		.page-header(style='margin-top:0px; margin-bottom:12px')
+			.btn.btn-success.pull-right Thêm Xe
+			h2(style='margin:0px') Danh sách xe
+
+		div.thumbnail(ng-repeat='item in [1,2,3,4,5,6,7,8,9,10]')
+			//- .btn.btn-warning.pull-right Danh sách chỗ ngồi
+			p Xe giường nằm tài {{item}}
+			p Khởi hành lúc 17h00 hằng ngày

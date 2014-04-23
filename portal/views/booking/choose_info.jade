@@ -1,0 +1,39 @@
+.row
+	.col-md-3
+		div.list-group
+			a.list-group-item(ng-href='#/choosedate') Chọn ngày
+			a.list-group-item(ng-href='#/choosecars') Chọn xe
+			a.list-group-item(ng-href='#/choosesit') Chọn ghế
+			a.list-group-item(ng-href='#/chooseinfo') Thông tin hành khách
+			a.list-group-item(ng-href='#/choosedone') Hoàn tất đặt vé
+
+	.col-md-9
+		.page-header(style='margin-top:10px; margin-bottom:12px')
+			h2(style='margin:0px') Thông tin người đặt
+
+		.form-horizontal
+			// Text input
+			.form-group
+				label.col-md-3.control-label(for='fullname') Họ Tên
+				.col-md-9
+					input#fullname.form-control.input-md(name='fullname', type='text', placeholder='', required='')
+			// Text input
+			.form-group
+				label.col-md-3.control-label(for='phone') Số điện thoại
+				.col-md-9
+					input#phone.form-control.input-md(name='phone', type='text', placeholder='', required='')
+			// Textarea
+			.form-group
+				label.col-md-3.control-label(for='note-from') Điểm đón
+				.col-md-9
+					textarea#note-from.form-control(name='note-from')
+			// Textarea
+			.form-group
+				label.col-md-3.control-label(for='note-to') Điểm đến
+				.col-md-9
+					textarea#note-to.form-control(name='note-to')
+			// Button (Double)
+			.form-group
+				label.col-md-3.control-label(for='next')
+				.col-md-9
+					button#next.btn.btn-success(name='next') Hoàn tất

@@ -1,0 +1,17 @@
+.row
+	.col-md-3
+		div.list-group
+			a.list-group-item(ng-href='#/choosedate') Chọn ngày
+			a.list-group-item(ng-href='#/choosecars') Chọn xe
+			a.list-group-item(ng-href='#/choosesit') Chọn ghế
+			a.list-group-item(ng-href='#/chooseinfo') Thông tin hành khách
+			a.list-group-item(ng-href='#/choosedone') Hoàn tất đặt vé
+
+	.col-md-9
+		.page-header(style='margin-top:10px; margin-bottom:12px')
+			h2(style='margin:0px') Chọn xe
+
+		div.thumbnail(ng-repeat='item in [1,2,3,4,5,6,7,8,9,10]')
+			p Xe giường nằm tài {{item}}
+			p Khởi hành lúc 17h00 hằng ngày
+			p Còn {{item}} ghế

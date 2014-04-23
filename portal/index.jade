@@ -1,0 +1,91 @@
+doctype 5
+
+html(ng-app='booking-mamangement')
+	head
+		meta(charset='UTF-8')
+		title
+			| Booking Management
+		link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+
+		//- medium-editor
+		link(rel='stylesheet',
+			href='bower_components/medium-editor/dist/css/medium-editor.css')
+		link(rel='stylesheet',
+			href='bower_components/medium-editor/dist/css/themes/default.css')
+
+		//- link(rel='stylesheet', href='/bower_components/_contents/studentfly.css')
+		link(rel='stylesheet', href='/bower_components/_contents/style.css')
+
+	body(style='padding:60px 30px;')
+
+		//- include login
+
+		div.row.clearfix
+			div.col-md-12.column
+				nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+					div.navbar-header
+						button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+							span.sr-only Toggle navigation
+							span.icon-bar
+							span.icon-bar
+							span.icon-bar
+						a.navbar-brand(href='/#/', style='color:#ea1943')
+							b JpExpress
+
+					div#bs-example-navbar-collapse-1.collapse.navbar-collapse
+						ul.nav.navbar-nav
+							//- li.active
+								a(ng-href='#/home') Quản lý
+							li
+								a(ng-href='#/admin') Quản trị
+							li
+								a(ng-href='#/choosedate') Đặt vé
+
+						ul.nav.navbar-nav.navbar-right(style='padding-right:40px')
+							li.dropdown
+								a.dropdown-toggle(href='#', data-toggle='dropdown')
+									| Tâm Phạm
+									b.caret
+								ul.dropdown-menu
+									li
+										a(href='#') Thông tin tài khoản
+									li
+										a(href='#') Quản lý bài viết
+									li
+										a(href='#') Quản lý profile
+									li.divider
+									li
+										a(href='#') Ứng tuyển
+
+		div(ng-view)
+		//- .row
+			.col-md-3
+				div.list-group
+					a.list-group-item(ng-href='#/') Xe giường nằm tài 1
+					a.list-group-item(ng-href='#/') Xe giường nằm tài 2
+					a.list-group-item(ng-href='#/') Xe giường nằm tài 3
+					a.list-group-item(ng-href='#/') Xe giường nằm tài 4
+					a.list-group-item(ng-href='#/') Xe giường nằm tài 5
+
+			.col-md-9
+				div(ng-view)
+
+
+
+		.row(style='margin-top:50px; margin-bottom:50px')
+			.col-md-12
+				label.label.label-success #Youthstd 2014
+
+		script(src='/bower_components/jquery/dist/jquery.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.js')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-resource.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-route.min.js')
+		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-sanitize.min.js')
+
+		script(src='bower_components/medium-editor/dist/js/medium-editor.js')
+		script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
+		script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')
+
+		script(src='/scripts.js')
+		script(src='/templates.js')

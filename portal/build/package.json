@@ -1,0 +1,15 @@
+{
+  "name": "student-fly",
+  "private": true,
+  "devDependencies": {
+    "grunt": "0.4.x",
+    "grunt-html2js": "0.1.x",
+    "grunt-mapcat": "0.1.x",
+    "grunt-recess": "0.4.x",
+    "grunt-contrib-coffee": "0.7.x",
+    "grunt-contrib-cssmin": "0.6.x",
+    "grunt-contrib-jade": "0.8.x",
+    "grunt-contrib-stylus": "0.8.x",
+    "grunt-contrib-watch": "0.5.x"
+  }
+}

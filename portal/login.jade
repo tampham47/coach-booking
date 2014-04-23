@@ -1,0 +1,28 @@
+.modal.fade(ng-controller='LoginCtrl')
+	.modal-dialog
+		form.form-horizontal.modal-content(name='form')
+			.modal-header
+				h4.modal-title
+					| {{ btn_login.title || 'Login' }}
+
+			.modal-body
+				.form-group
+					label.control-label
+						| Email
+					.controls
+						input.form-control(type='email', ng-model='credential.email', required, autofocus)
+				.form-group
+					label.control-label
+						| Password
+					.controls
+						input.form-control(type='password', ng-model='credential.password', required)
+				.alert.alert-danger(ng-if='error')
+					| Incorrect email or password.
+
+			.modal-footer
+				button.btn.btn-default(ng-click='cancel()', ng-if='btn_login.isCancel', type='button')
+					| Cancel
+
+				button.btn.btn-primary(we-click='login()')
+					i.icon-signin
+					| {{ btn_login.value || 'Login' }}
