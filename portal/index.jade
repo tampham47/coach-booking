@@ -4,7 +4,7 @@ html(ng-app='booking-mamangement')
 	head
 		meta(charset='UTF-8')
 		title
-			| Booking Management
+			| Juddy Express
 		link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
 
 		//- medium-editor
@@ -14,7 +14,7 @@ html(ng-app='booking-mamangement')
 			href='bower_components/medium-editor/dist/css/themes/default.css')
 
 		//- link(rel='stylesheet', href='/bower_components/_contents/studentfly.css')
-		link(rel='stylesheet', href='/bower_components/_contents/style.css')
+		//- link(rel='stylesheet', href='/bower_components/_contents/style.css')
 
 	body(style='padding:60px 30px;')
 
@@ -30,16 +30,16 @@ html(ng-app='booking-mamangement')
 							span.icon-bar
 							span.icon-bar
 						a.navbar-brand(href='/#/', style='color:#ea1943')
-							b JpExpress
+							b Juddy Express
 
 					div#bs-example-navbar-collapse-1.collapse.navbar-collapse
 						ul.nav.navbar-nav
-							//- li.active
-								a(ng-href='#/home') Quản lý
 							li
-								a(ng-href='#/admin') Quản trị
+								a(ng-href='#/booking') Đặt vé
 							li
-								a(ng-href='#/choosedate') Đặt vé
+								a(ng-href='#/car') QL Xe
+							li
+								a(ng-href='#/employee') QL Nhân viên
 
 						ul.nav.navbar-nav.navbar-right(style='padding-right:40px')
 							li.dropdown
@@ -55,22 +55,9 @@ html(ng-app='booking-mamangement')
 										a(href='#') Quản lý profile
 									li.divider
 									li
-										a(href='#') Ứng tuyển
+										a(href='#') Về chúng tôi
 
-		div(ng-view)
-		//- .row
-			.col-md-3
-				div.list-group
-					a.list-group-item(ng-href='#/') Xe giường nằm tài 1
-					a.list-group-item(ng-href='#/') Xe giường nằm tài 2
-					a.list-group-item(ng-href='#/') Xe giường nằm tài 3
-					a.list-group-item(ng-href='#/') Xe giường nằm tài 4
-					a.list-group-item(ng-href='#/') Xe giường nằm tài 5
-
-			.col-md-9
-				div(ng-view)
-
-
+		div(ng-view, style='margin-top:14px')
 
 		.row(style='margin-top:50px; margin-bottom:50px')
 			.col-md-12

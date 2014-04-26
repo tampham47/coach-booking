@@ -10,6 +10,10 @@ angular.module 'booking-mamangement', [
 	'booking-mamangement.templates'
 
 	'booking-mamangement.home'
+	'booking-mamangement.manage'
+	'booking-mamangement.car'
+	'booking-mamangement.company'
+	'booking-mamangement.employee'
 	'booking-mamangement.booking'
 	'booking-mamangement.admin'
 ]

@@ -23,7 +23,7 @@ require('./controllers')(app)
 # passport.serializeUser User.serializeUser()
 # passport.deserializeUser User.deserializeUser()
 
-mongoose.connect 'mongodb://localhost/student-fly'
+mongoose.connect 'mongodb://localhost/jpexpress'
 
-app.listen 3000
-console.log 'Listening on port 3000...'
+app.listen 3001
+console.log 'Listening on port 3001...'

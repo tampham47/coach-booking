@@ -1,32 +1,23 @@
-.row
-	.col-md-3
-		div.list-group
-			a.list-group-item(ng-href='#/choosedate') Chọn ngày
-			a.list-group-item(ng-href='#/choosecars') Chọn xe
-			a.list-group-item(ng-href='#/choosesit') Chọn ghế
-			a.list-group-item(ng-href='#/chooseinfo') Thông tin hành khách
-			a.list-group-item(ng-href='#/choosedone') Hoàn tất đặt vé
+div(ng-controller='choosedate-ctrl')
+	.page-header(style='margin-top:0px; margin-bottom:12px')
+		h3(style='margin:0px') Chọn ngày
 
-	.col-md-9
-		.page-header(style='margin-top:10px; margin-bottom:12px')
-			h2(style='margin:0px') Chọn ngày
-
-		.form-horizontal
-			// Text input
-			.form-group
-				label.col-md-3.control-label(for='date') Chọn Ngày
-				.col-md-9
-					input#date.form-control.input-md(name='date', type='text', placeholder='Ngày/tháng/năm', required='')
-					span.help-block Ngày 20 tháng 4 năm 2014
-			// Text input
-			.form-group
-				label.col-md-3.control-label(for='amount') Số lượng
-				.col-md-9
-					input#amount.form-control.input-md(name='amount', type='text', placeholder='0')
-					span.help-block Đặt 0 ghế
-			// Button (Double)
-			.form-group
-				label.col-md-3.control-label(for='next')
-				.col-md-9
-					button#next.btn.btn-success(name='next') Next
-						i.glyphicon.glyphicon-chevron-right
+	.form-horizontal
+		// Text input
+		.form-group
+			label.col-md-2.control-label(for='date') Chọn Ngày
+			.col-md-8
+				input#date.form-control.input-md(name='date', type='text', placeholder='Ngày/tháng/năm', required='')
+				span.help-block Ngày 20 tháng 4 năm 2014
+		// Text input
+		.form-group
+			label.col-md-2.control-label(for='amount') Số lượng
+			.col-md-8
+				input#amount.form-control.input-md(name='amount', type='text', placeholder='0')
+				span.help-block Đặt 0 ghế
+		// Button (Double)
+		.form-group
+			label.col-md-2.control-label(for='next')
+			.col-md-8
+				button#next.btn.btn-success(name='next') Tiếp tục
+					i.glyphicon.glyphicon-chevron-right

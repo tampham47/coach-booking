@@ -3,23 +3,23 @@
 mongooes = require 'mongoose'
 Schema = mongooes.Schema
 
-CommentSchema = new Schema
+UserCarSchema = new Schema
 	_user:
 		type: Schema.Types.ObjectId
-		ref: 'User'
+		ref: 'jp_user'
 		require: true
 
-	_post:
+	_car:
 		type: Schema.Types.ObjectId
-		ref: 'Post'
+		ref: 'jp_car'
 		require: true
 
-	content:
+	notes:
 		type: String
 
-	modified:
+	created_date:
 		type: Date
-		default: new Date
+		default: Date.now
 
 
-module.exports = mongooes.model 'Comment', CommentSchema
+module.exports = mongooes.model 'jp_user_car', UserCarSchema

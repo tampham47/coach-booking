@@ -1,8 +1,8 @@
 'use strict'
 
 angular.module('booking-mamangement')
-.factory 'user', ($resource, config) ->
-	$resource config.user + '/:cmd/:_id', null,
+.factory 'booking', ($resource, config) ->
+	$resource config.booking + '/:cmd/:_id', null,
 		create:
 			method: 'POST'
 			isArray: false

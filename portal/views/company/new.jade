@@ -1,0 +1,42 @@
+.row
+	.col-md-3
+		div.list-group
+			a.list-group-item(ng-href='#/car') Quản lý xe
+			a.list-group-item(ng-href='#/employee') Quản lý nhân viên
+
+	.col-md-9
+		.page-header(style='margin-top:0px; margin-bottom:12px')
+			h2(style='margin:0px') Thêm công ty
+
+		form.form-horizontal
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='company_name') Tên công ty
+				.col-md-8
+					input#company_name.form-control.input-md(ng-model='model.company_name', name='company_name', type='text', placeholder='', required='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='address') Địa chỉ
+				.col-md-8
+					input#address.form-control.input-md(ng-model='model.address', name='address', type='text', placeholder='', required='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='phone') Điện thoại
+				.col-md-8
+					input#phone.form-control.input-md(ng-model='model.phone', name='phone', type='text', placeholder='', required='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='city') Thành phố
+				.col-md-8
+					input#city.form-control.input-md(ng-model='model.city', name='city', type='text', placeholder='')
+			// Textarea
+			.form-group
+				label.col-md-2.control-label(for='notes') Ghi chú
+				.col-md-8
+					textarea#notes.form-control(ng-model='model.notes', name='notes')
+			// Button (Double)
+			.form-group
+				label.col-md-2.control-label(for='next')
+				.col-md-8
+					button#next.btn.btn-success(name='next', ng-click='next()') Tiếp tục
+					button#cancel.btn.btn-link(name='cancel') Hủy

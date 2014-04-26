@@ -1,0 +1,58 @@
+.row
+	.col-md-3
+		.page-header(style='margin-top:0px; margin-bottom:12px')
+			a.btn.btn-success.btn-sm.pull-right(href='#/car/new')
+				i.glyphicon.glyphicon-plus
+				| Thêm
+			h3(style='margin:0px') Danh sách xe
+
+		div.list-group
+			a.list-group-item(ng-href='#/car') Xe giường nằm tài 1
+			a.list-group-item(ng-href='#/car') Xe giường nằm tài 2
+			a.list-group-item(ng-href='#/car') Xe giường nằm tài 3
+			a.list-group-item(ng-href='#/car') Xe giường nằm tài 4
+			a.list-group-item(ng-href='#/car') Xe giường nằm tài 5
+			a.list-group-item(ng-href='#/car') Xe giường nằm tài 6
+
+	.col-md-9
+		.form-horizontal
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='car-name') Tên Xe
+				.col-md-8
+					label#car-name.form-control.input-md(name='car-name', type='text', placeholder='', required='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='chuyen') Tuyến
+				.col-md-8
+					label#chuyen.form-control.input-md(name='chuyen', type='text', placeholder='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='start-time') Giờ khởi hành
+				.col-md-8
+					label#start-time.form-control.input-md(name='start-time', type='text', placeholder='giờ:phút')
+					//- span.help-block 17 giờ 30 phút
+			// Textarea
+			.form-group
+				label.col-md-2.control-label(for='seats') Danh sách ghế
+				.col-md-8
+					label#seats.form-control(name='seats')
+					span.help-block Nhập vào tên các ghế trên xe, các ghế cách nhau bởi dấu phẩy (,)
+					span.help-block Các ghế trên xe chỉ được nhập một lần, nên hãy cẩn thận.
+			// Textarea
+			.form-group
+				label.col-md-2.control-label(for='notes') Ghi chú
+				.col-md-8
+					label#notes.form-control(name='notes')
+			// Button (Double)
+			//- .form-group
+				label.col-md-2.control-label(for='next')
+				.col-md-8
+					button#next.btn.btn-success(name='next') Thêm xe
+					a#cancel.btn.btn-default(href='#/car', style='margin-left:4px') Hủy
+
+
+		//- div.thumbnail(ng-repeat='item in [1,2,3,4,5,6,7,8,9,10]')
+			//- .btn.btn-warning.pull-right Danh sách chỗ ngồi
+			p Xe giường nằm tài {{item}}
+			p Khởi hành lúc 17h00 hằng ngày

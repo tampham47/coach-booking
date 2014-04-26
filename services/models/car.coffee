@@ -3,35 +3,30 @@
 mongooes = require 'mongoose'
 Schema = mongooes.Schema
 
-UserSchema = new Schema
+CarSchema = new Schema
 	_company:
 		type: Schema.Types.ObjectId
 		ref: 'jp_company'
 		require: true
 
-	user_name:
-		type: String
-		unique: true
-		require: true
-
-	phone_number:
+	name:
 		type: String
 
-	email:
+	route:
 		type: String
 
-	full_name:
+	start_date:
 		type: String
 
-	birthday:
-		type: Date
+	seats:
+		type: [String]
 
-	role:
+	notes:
 		type: String
-		enum: ['admin', 'manager']
 
 	created_date:
 		type: Date
 		default: Date.now
 
-module.exports = mongooes.model 'jp_user', UserSchema
+
+module.exports = mongooes.model 'jp_car', CarSchema

@@ -1,0 +1,58 @@
+.row
+	.col-md-3
+		.page-header(style='margin-top:0px; margin-bottom:12px')
+			h3(style='margin:0px') DS Nhân viên
+		div.list-group
+			a.list-group-item(ng-href='#/employee') Phạm Minh Tâm
+			a.list-group-item(ng-href='#/employee') Lê Thị Huệ
+			a.list-group-item(ng-href='#/employee') Nguyễn Văn Đồng
+			a.list-group-item(ng-href='#/employee') Nguyễn Quang Trọng Nghĩa
+			a.list-group-item(ng-href='#/employee') Phạm Nhật Hoa
+			a.list-group-item(ng-href='#/employee') Nguyễn Ngân
+
+	.col-md-9
+		.page-header(style='margin-top:0px; margin-bottom:12px')
+			h2(style='margin:0px') Thêm nhân viên
+
+		form.form-horizontal
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='full-name') Họ Tên
+				.col-md-8
+					input#full-name.form-control.input-md(name='full-name', type='text', placeholder='', required='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='phone') Điện thoại
+				.col-md-8
+					input#phone.form-control.input-md(name='phone', type='text', placeholder='', required='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='role') Chức vụ
+				.col-md-8
+					input#role.form-control.input-md(name='role', type='text', placeholder='', required='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='birthday') Ngày sinh
+				.col-md-8
+					input#birthday.form-control.input-md(name='birthday', type='text', placeholder='', required='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='user-name') Tên đăng nhập
+				.col-md-8
+					input#user-name.form-control.input-md(name='user-name', type='text', placeholder='', required='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='password') Mật khẩu
+				.col-md-8
+					input#password.form-control.input-md(name='password', type='text', placeholder='', required='')
+			// Textarea
+			.form-group
+				label.col-md-2.control-label(for='notes') Ghi chú
+				.col-md-8
+					textarea#notes.form-control(name='notes')
+			// Button (Double)
+			.form-group
+				label.col-md-2.control-label(for='next')
+				.col-md-8
+					button#next.btn.btn-success(name='next') Thêm nhân viên
+					a#cancel.btn.btn-default(href='#/employee', name='cancel', style='margin-left:4px') Hủy

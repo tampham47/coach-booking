@@ -1,0 +1,15 @@
+.row
+	.col-md-3
+		div.list-group
+			a.list-group-item(ng-href='#/car') Quản lý xe
+			a.list-group-item(ng-href='#/employee') Quản lý nhân viên
+
+	.col-md-9
+		.page-header(style='margin-top:0px; margin-bottom:12px')
+			a.btn.btn-success.pull-right(href='#/company/new') Thêm công ty
+			h2(style='margin:0px') Danh sách công ty
+
+		div.thumbnail(ng-repeat='item in companies')
+			//- .btn.btn-warning.pull-right Danh sách chỗ ngồi
+			p {{item.company_name}}
+			p Phone: {{item.phone}}

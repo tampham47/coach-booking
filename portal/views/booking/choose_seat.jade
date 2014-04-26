@@ -1,0 +1,21 @@
+div(ng-controller='chooseseat-ctrl')
+	.page-header(style='margin-top:0px; margin-bottom:12px')
+		h3(style='margin:0px') Chọn ghế
+
+	.row
+		.col-md-3(ng-repeat='item in seats',
+			style='margin-bottom:4px')
+			.input-group
+				span.input-group-addon
+					input(ng-model='item.checked', ng-change='changed(item)', ng-true-value="YES", ng-false-value="NO", type='checkbox', name='sit-{{item}}', id='sit-{{item}}')
+				label.form-control(for='sit-{{item}}') {{item.name}}
+
+
+	.row(style='margin-top:50px')
+		.col-md-12
+			p
+				.btn.btn-success.pull-right
+					| Tiếp tục
+					i.glyphicon.glyphicon-chevron-right
+
+				| Bạn đã chọn {{choose.number}} ghế: {{choose.seats}}

@@ -1,20 +1,20 @@
 'use strict'
 
-user = require '../business/user'
+guest = require '../business/guest'
 
 create = (req, res) ->
 	data = req.body
-	user.create(data).then ->
+	guest.create(data).then ->
 		res.send data
 	, (err) ->
 		res.send
 			err: err
 
 getAll = (req, res) ->
-	user.getAll().then (data) ->
+	guest.getAll().then (data) ->
 		res.send data
 
 
 module.exports = (app) ->
-	app.post '/user/create', create
-	app.get '/user/getAll', getAll
+	app.post '/guest/create', create
+	app.get '/guest/getAll', getAll

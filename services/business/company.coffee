@@ -1,22 +1,22 @@
 'use strict'
 
-User = require '../models/user'
+Company = require '../models/company'
 
 create = (data) ->
 	# create function always return a promise
-	User.create(data)
+	Company.create(data)
 
 update = (id, data) ->
-	User.findByIdAndUpdate(id, data).exec()
+	Company.findByIdAndUpdate(id, data).exec()
 
 getById = (id) ->
-	User.getById(id).exec()
+	Company.getById(id).exec()
 
 getAll = ->
-	User.find({}).exec()
+	Company.find({}).exec()
 
 get = (index, limit) ->
-	User.find({}).sort({created_date: -1})
+	Company.find({}).sort({created_date: -1})
 	.skip(index).limit(limit).exec()
 
 
