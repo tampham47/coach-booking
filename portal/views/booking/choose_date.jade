@@ -11,6 +11,11 @@ div(ng-controller='choosedate-ctrl')
 				span.help-block Ngày 20 tháng 4 năm 2014
 		// Text input
 		.form-group
+			label.col-md-2.control-label(for='route') Chọn tuyến
+			.col-md-8
+				input#route.form-control.input-md(name='route', type='text', required='')
+		// Text input
+		.form-group
 			label.col-md-2.control-label(for='amount') Số lượng
 			.col-md-8
 				input#amount.form-control.input-md(name='amount', type='text', placeholder='0')

@@ -11,7 +11,9 @@ angular.module 'booking-mamangement', [
 
 	'booking-mamangement.home'
 	'booking-mamangement.manage'
+	'booking-mamangement.setting'
 	'booking-mamangement.car'
+	'booking-mamangement.guest'
 	'booking-mamangement.company'
 	'booking-mamangement.employee'
 	'booking-mamangement.booking'

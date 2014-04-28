@@ -1,0 +1,39 @@
+div
+	.page-header(style='margin-top:0px; margin-bottom:12px')
+		h3(style='margin:0px') Cài đặt tuyến
+
+	form.form-horizontal
+		// Text input
+		.form-group
+			label.col-md-2.control-label(for='short_name') Tên ngắn gọn
+			.col-md-8
+				input#short_name.form-control.input-md(name='short_name', type='text', placeholder='', required='')
+				span.help-block KT-SG
+		// Select Basic
+		.form-group
+			label.col-md-2.control-label(for='start') Xuất phát
+			.col-md-8
+				select#start.form-control(name='start')
+					option(value='1') Sài Gòn
+					option(value='2') Kon Tum
+					option(value='3') Gia Lai
+					option(value='4') Daklak
+					option(value='5') Dak Nông
+					option(value='6') Lâm Đồng
+		// Select Basic
+		.form-group
+			label.col-md-2.control-label(for='destination') Điểm đến
+			.col-md-8
+				select#destination.form-control(name='destination')
+					option(value='1') Sài Gòn
+					option(value='2') Kon Tum
+					option(value='3') Gia Lai
+					option(value='4') Daklak
+					option(value='5') Dak Nông
+					option(value='6') Lâm Đồng
+		// Button (Double)
+		.form-group
+			label.col-md-2.control-label(for='send')
+			.col-md-8
+				button#send.btn.btn-success(name='send') Thêm tuyến
+				button#cancel.btn.btn-link(name='cancel') Hủy

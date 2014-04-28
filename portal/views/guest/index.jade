@@ -1,15 +1,28 @@
 .row
 	.col-md-3
+		.page-header(style='margin-top:0px; margin-bottom:12px')
+			h3(style='margin:0px') Danh sách tuyến
 		div.list-group
-			a.list-group-item(ng-href='#/car') Quản lý xe
-			a.list-group-item(ng-href='#/employee') Quản lý nhân viên
+			a.list-group-item(ng-href='#/guest') Kon Tum - Sài Gòn
+			a.list-group-item(ng-href='#/guest') Sài Gòn - Kon TUm
 
 	.col-md-9
 		.page-header(style='margin-top:0px; margin-bottom:12px')
-			a.btn.btn-success.pull-right(href='#/employee/new')
-			h2(style='margin:0px') Danh sách hành khách
+			.btn.btn-link.pull-right
+				i.glyphicon.glyphicon-search
+				| Tìm kiếm
+			h3(style='margin:0px') Danh sách hành khách
 
-		div.thumbnail(ng-repeat='item in [1,2,3,4,5,6,7,8,9,10]')
-			//- .btn.btn-warning.pull-right Danh sách chỗ ngồi
-			p Phạm Minh Tâm {{item}}
-			p 01643-652-922
+		table.table.table-hover
+			tr(ng-repeat='item in [1,2,3,4,5,6]')
+				td
+					b PHẠM MINH TÂM {{item}}
+					br
+					| 01643-652-922
+				td(style='width:120px; vertical-align:middle')
+					a(href='#') Ghi chú
+				td(style='width:120px; vertical-align:middle')
+					b Đã đi 22 lần
+				td(style='width:120px')
+					.btn.btn-success.pull-right Lịch sử
+						i.glyphicon.glyphicon-chevron-right
