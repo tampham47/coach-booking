@@ -7,7 +7,8 @@ angular.module('booking-mamangement')
 			method: 'POST'
 			isArray: false
 			params: cmd: 'create'
-		getall:
+
+		get_all:
 			method: 'GET'
 			isArray: true
 			params: cmd: 'getall'

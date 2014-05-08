@@ -3,30 +3,22 @@
 mongooes = require 'mongoose'
 Schema = mongooes.Schema
 
-CarSchema = new Schema
+RouteSchema = new Schema
 	_company:
 		type: Schema.Types.ObjectId
 		ref: 'jp_company'
 		require: true
 
-	_route:
-		type: Schema.Types.ObjectId
-		ref: 'jp_route'
-		require: true
-
-	name:
+	full_name:
 		type: String
 
-	start_time:
+	short_name:
 		type: String
 
-	price:
+	from:
 		type: String
 
-	seats:
-		type: [String]
-
-	notes:
+	destination:
 		type: String
 
 	created_date:
@@ -34,4 +26,4 @@ CarSchema = new Schema
 		default: Date.now
 
 
-module.exports = mongooes.model 'jp_car', CarSchema
+module.exports = mongooes.model 'jp_route', RouteSchema

@@ -1,4 +1,4 @@
-div
+div(ng-controller='route-new-ctrl')
 	.page-header(style='margin-top:0px; margin-bottom:12px')
 		h3(style='margin:0px') Cài đặt tuyến
 
@@ -8,29 +8,43 @@ div
 			label.col-md-2.control-label(for='short_name') Tên ngắn gọn
 			.col-md-8
 				input#short_name.form-control.input-md(name='short_name', type='text', placeholder='', required='')
-				span.help-block KT-SG
+				span.help-block SG-KT
 		// Select Basic
 		.form-group
 			label.col-md-2.control-label(for='start') Xuất phát
 			.col-md-8
-				select#start.form-control(name='start')
-					option(value='1') Sài Gòn
-					option(value='2') Kon Tum
-					option(value='3') Gia Lai
-					option(value='4') Daklak
-					option(value='5') Dak Nông
-					option(value='6') Lâm Đồng
+				select#start.form-control(ng-model='model.from', ng-options='item._id as item.province for item in provinces')
+				//- select#start.form-control(ng-model='model.from', name='start')
+					option(ng-repeat='item in provinces', value='{{item._id}}') {{item.province}}
+		// Text input
+		//- .form-group
+			label.col-md-2.control-label(for='address') Địa chỉ
+			.col-md-8
+				input#address.form-control.input-md(name='address', type='text', placeholder='', required='')
+		// Text input
+		//- .form-group
+			label.col-md-2.control-label(for='phone') Số điện thoại
+			.col-md-8
+				input#phone.form-control.input-md(name='phone', type='text', placeholder='', required='')
+
 		// Select Basic
 		.form-group
 			label.col-md-2.control-label(for='destination') Điểm đến
 			.col-md-8
-				select#destination.form-control(name='destination')
-					option(value='1') Sài Gòn
-					option(value='2') Kon Tum
-					option(value='3') Gia Lai
-					option(value='4') Daklak
-					option(value='5') Dak Nông
-					option(value='6') Lâm Đồng
+				select#start.form-control(ng-model='model.destination', ng-options='item._id as item.province for item in provinces')
+				//- select#destination.form-control(ng-model='model.destination', name='destination')
+					option(ng-repeat='item in provinces', value='{{item._id}}') {{item.province}}
+		// Text input
+		//- .form-group
+			label.col-md-2.control-label(for='address') Địa chỉ
+			.col-md-8
+				input#address.form-control.input-md(name='address', type='text', placeholder='', required='')
+		// Text input
+		//- .form-group
+			label.col-md-2.control-label(for='phone') Số điện thoại
+			.col-md-8
+				input#phone.form-control.input-md(name='phone', type='text', placeholder='', required='')
+
 		// Button (Double)
 		.form-group
 			label.col-md-2.control-label(for='send')

@@ -1,14 +1,14 @@
 'use strict'
 
 angular.module('booking-mamangement')
-.factory 'company', ($resource, config) ->
-	$resource config.company + '/:cmd/:_id', null,
+.factory 'route', ($resource, config) ->
+	$resource config.route + '/:cmd/:_id', null,
 		create:
 			method: 'POST'
 			isArray: false
 			params: cmd: 'create'
 
-		getall:
+		get_all:
 			method: 'GET'
 			isArray: true
-			params: cmd: 'getall'
+			params: cmd: 'get_all'

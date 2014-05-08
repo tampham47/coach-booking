@@ -1,0 +1,28 @@
+div(ng-controller='route-new-ctrl')
+	.page-header(style='margin-top:0px; margin-bottom:12px')
+		h3(style='margin:0px') Thêm tuyến
+
+	form.form-horizontal
+		// Text input
+		.form-group
+			label.col-md-2.control-label(for='short_name') Tên ngắn gọn
+			.col-md-8
+				input#short_name.form-control.input-md(ng-model='model.short_name', name='short_name', type='text', placeholder='', required='')
+				span.help-block SG-KT
+		// Select Basic
+		.form-group
+			label.col-md-2.control-label(for='start') Xuất phát
+			.col-md-8
+				select#start.form-control(ng-model='model.from', ng-options='item.province as item.province for item in provinces')
+		// Select Basic
+		.form-group
+			label.col-md-2.control-label(for='destination') Điểm đến
+			.col-md-8
+				select#start.form-control(ng-model='model.destination', ng-options='item.province as item.province for item in provinces')
+
+		// Button (Double)
+		.form-group
+			label.col-md-2.control-label(for='send')
+			.col-md-8
+				button#send.btn.btn-success(name='send', ng-click='submit()') Thêm tuyến
+				button#cancel.btn.btn-link(ng-click='cancel()', name='cancel') Hủy

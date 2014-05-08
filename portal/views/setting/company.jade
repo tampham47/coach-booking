@@ -1,4 +1,4 @@
-div
+div(ng-controller='company-new-ctrl')
 	.page-header(style='margin-top:0px; margin-bottom:12px')
 		h3(style='margin:0px') Thông tin công ty
 
@@ -29,9 +29,33 @@ div
 			label.col-md-2.control-label(for='notes') Ghi chú
 			.col-md-8
 				textarea#notes.form-control(ng-model='model.notes', name='notes')
+
+		br
+		br
+		// Text input
+		.form-group
+			label.col-md-2.control-label(for='user_name') Tài khoản quản trị
+			.col-md-8
+				input#user_name.form-control.input-md(ng-model='user.username', name='user_name', type='text', placeholder='', required='')
+		// Text input
+		.form-group
+			label.col-md-2.control-label(for='full_name') Họ Tên
+			.col-md-8
+				input#full_name.form-control.input-md(ng-model='user.full_name', name='full_name', type='text', placeholder='', required='')
+		// Text input
+		.form-group
+			label.col-md-2.control-label(for='password') Mật khẩu
+			.col-md-8
+				input#password.form-control.input-md(ng-model='user.password', name='password', type='password', placeholder='')
+		// Text input
+		//- .form-group
+		//- 	label.col-md-2.control-label(for='re-password') Nhập lại mật khẩu
+		//- 	.col-md-8
+		//- 		input#re-password.form-control.input-md(ng-model='credential.re-password', name='re-password', type='text', placeholder='')
+
 		// Button (Double)
 		.form-group
 			label.col-md-2.control-label(for='next')
 			.col-md-8
-				button#next.btn.btn-success(name='next', ng-click='next()') Tiếp tục
+				button#next.btn.btn-success(name='next', ng-click='submit()') Tiếp tục
 				button#cancel.btn.btn-link(name='cancel') Hủy

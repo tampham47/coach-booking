@@ -5,6 +5,10 @@
 		"express": "3.4.x",
 		"jade": "*",
 		"passport": "0.2.0",
+		"lodash": "2.4.1",
+		"passport-local-mongoose": "0.2.x",
+		"underscore": "1.6.0",
+		"underscore.string": "*",
 		"mongoose": "latest"
 	}
 }

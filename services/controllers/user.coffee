@@ -2,13 +2,22 @@
 
 user = require '../business/user'
 
-create = (req, res) ->
+register = (req, res) ->
+	console.log 'controller/register'
 	data = req.body
-	user.create(data).then ->
+	console.log data
+	user.register(data, data.password)
+	.then (data) ->
+		console.log data
 		res.send data
 	, (err) ->
-		res.send
-			err: err
+		console.log err
+		res.send {err: err}
+
+create = (req, res) ->
+	data = req.body
+	user.create(data).then (data) ->
+		res.send data
 
 getAll = (req, res) ->
 	user.getAll().then (data) ->
@@ -17,4 +26,5 @@ getAll = (req, res) ->
 
 module.exports = (app) ->
 	app.post '/user/create', create
+	app.post '/user/register', register
 	app.get '/user/getAll', getAll

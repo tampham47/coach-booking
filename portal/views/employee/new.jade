@@ -19,40 +19,43 @@
 			.form-group
 				label.col-md-2.control-label(for='full-name') Họ Tên
 				.col-md-8
-					input#full-name.form-control.input-md(name='full-name', type='text', placeholder='', required='')
-			// Text input
-			.form-group
-				label.col-md-2.control-label(for='phone') Điện thoại
-				.col-md-8
-					input#phone.form-control.input-md(name='phone', type='text', placeholder='', required='')
+					input#full-name.form-control.input-md(ng-model='model.full_name', name='full-name', type='text', placeholder='', required='')
 			// Text input
 			.form-group
 				label.col-md-2.control-label(for='role') Chức vụ
 				.col-md-8
-					input#role.form-control.input-md(name='role', type='text', placeholder='', required='')
+					input#role.form-control.input-md(ng-model='model.role', name='role', type='text', placeholder='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='phone') Điện thoại
+				.col-md-8
+					input#phone.form-control.input-md(ng-model='model.phone_number', name='phone', type='text', placeholder='')
 			// Text input
 			.form-group
 				label.col-md-2.control-label(for='birthday') Ngày sinh
 				.col-md-8
-					input#birthday.form-control.input-md(name='birthday', type='text', placeholder='', required='')
-			// Text input
-			.form-group
-				label.col-md-2.control-label(for='user-name') Tên đăng nhập
-				.col-md-8
-					input#user-name.form-control.input-md(name='user-name', type='text', placeholder='', required='')
-			// Text input
-			.form-group
-				label.col-md-2.control-label(for='password') Mật khẩu
-				.col-md-8
-					input#password.form-control.input-md(name='password', type='text', placeholder='', required='')
+					input#birthday.form-control.input-md(ng-model='model.birthday', name='birthday', type='text', placeholder='')
 			// Textarea
 			.form-group
 				label.col-md-2.control-label(for='notes') Ghi chú
 				.col-md-8
-					textarea#notes.form-control(name='notes')
+					textarea#notes.form-control(ng-model='model.notes', name='notes')
+
+			br
+			br
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='username') Tên đăng nhập
+				.col-md-8
+					input#username.form-control.input-md(ng-model='model.username', name='username', type='text', required='')
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='password') Mật khẩu
+				.col-md-8
+					input#password.form-control.input-md(ng-model='model.password', name='password', type='password', required='')
 			// Button (Double)
 			.form-group
 				label.col-md-2.control-label(for='next')
 				.col-md-8
-					button#next.btn.btn-success(name='next') Thêm nhân viên
+					button#next.btn.btn-success(ng-click='submit()', name='next') Thêm nhân viên
 					a#cancel.btn.btn-default(href='#/employee', name='cancel', style='margin-left:4px') Hủy

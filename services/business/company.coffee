@@ -3,8 +3,13 @@
 Company = require '../models/company'
 
 create = (data) ->
+	console.log 'company'
+	console.log data
 	# create function always return a promise
-	Company.create(data)
+	Company.create(data).then (data) ->
+		return data
+	, (err) ->
+		return {err: err}
 
 update = (id, data) ->
 	Company.findByIdAndUpdate(id, data).exec()

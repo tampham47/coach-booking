@@ -3,16 +3,16 @@
 		.page-header(style='margin-top:0px; margin-bottom:12px')
 			h3(style='margin:0px') Cài đặt
 		div.list-group
-			a.list-group-item(ng-href='#/setting', ng-click='nav("company.jade")')
+			a.list-group-item(ng-href='#/setting', ng-click='nav("views/setting/company.jade")')
 				| Thông tin công ty
-			a.list-group-item(ng-href='#/setting', ng-click='nav("route.jade")')
+			a.list-group-item(ng-href='#/setting', ng-click='nav("views/route/list.jade")')
 				| Cài đặt tuyến
 
 		div.list-group
-			a.list-group-item(ng-href='#/setting', ng-click='nav("question-answer.jade")')
-				| Hỏi đáp
-			a.list-group-item(ng-href='#/setting', ng-click='nav("about.jade")')
+			a.list-group-item(ng-href='#/setting', ng-click='nav("views/setting/about.jade")')
 				| Thông tin sản phẩm
+			a.list-group-item(ng-href='#/setting', ng-click='nav("views/setting/question-answer.jade")')
+				| Hỏi đáp
 
 	.col-md-9
 		div(ng-include='setting_template')

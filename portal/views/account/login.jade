@@ -1,0 +1,33 @@
+.modal.fade(ng-controller='account-login-ctrl')
+	.modal-dialog
+		.modal-content
+			.modal-header
+				button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+				h4.modal-title
+					| Đăng nhập
+
+			.modal-body
+				form.form-horizontal(name='form')
+					// Text input
+					.form-group
+						label.col-md-3.control-label(for='username') Tên đăng nhập
+						.col-md-8
+							input#user_name.form-control.input-md(type='text',
+								ng-model='credential.username', required, autofocus)
+
+					// Text input
+					.form-group
+						label.col-md-3.control-label(for='password') Mật khẩu
+						.col-md-8
+							input#password.form-control.input-md(type='password',
+								ng-model='credential.password', ng-enter='login()', required)
+
+					// Text input
+					.form-group
+						.alert.alert-danger(ng-if='error')
+							| Sai tên đăng nhập hoặc mật khẩu.
+
+			.modal-footer
+				button.btn.btn-primary(ng-click='login()')
+					i.icon-signin
+					| Đăng nhập

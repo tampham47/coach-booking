@@ -1,0 +1,7 @@
+div(ng-controller='route-ctrl')
+	.page-header(style='margin-top:0px; margin-bottom:12px')
+		.btn.btn-success.btn-sm.pull-right(ng-click='nav("views/route/new.jade")')
+			| Thêm Tuyến
+		h3(style='margin:0px') Cài đặt tuyến
+
+	div(ng-include='route_template')

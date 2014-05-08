@@ -7,6 +7,6 @@ angular.module('booking-mamangement.car', [])
 		controller: 'car-ctrl'
 		templateUrl: 'views/car/index.jade'
 
-.controller 'car-ctrl', ($scope, $location) ->
+.controller 'car-ctrl', ($scope, $location, car) ->
 	console.log 'car-ctrl'
-
+	$scope.cars = car.get_all()

@@ -7,12 +7,14 @@
 			h3(style='margin:0px') Danh sách xe
 
 		div.list-group
-			a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 1
-			a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 2
-			a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 3
-			a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 4
-			a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 5
-			a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 6
+			a.list-group-item(ng-href='#/car',
+				ng-repeat='item in cars') {{ item.name }}
+			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 1
+			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 2
+			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 3
+			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 4
+			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 5
+			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 6
 
 	.col-md-9
 		.form-horizontal

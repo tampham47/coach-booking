@@ -7,9 +7,12 @@ angular.module 'booking-mamangement', [
 	'ngRoute'
 	'ngResource'
 	'ngSanitize'
+	'http-auth-interceptor'
 	'booking-mamangement.templates'
 
+	'booking-mamangement.account'
 	'booking-mamangement.home'
+	'booking-mamangement.route'
 	'booking-mamangement.manage'
 	'booking-mamangement.setting'
 	'booking-mamangement.car'

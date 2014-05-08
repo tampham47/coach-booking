@@ -18,10 +18,10 @@ app.use passport.session()
 require('./controllers')(app)
 
 # configure passport
-# User = mongoose.model 'User'
-# passport.use User.createStrategy()
-# passport.serializeUser User.serializeUser()
-# passport.deserializeUser User.deserializeUser()
+User = mongoose.model 'jp_user'
+passport.use User.createStrategy()
+passport.serializeUser User.serializeUser()
+passport.deserializeUser User.deserializeUser()
 
 mongoose.connect 'mongodb://localhost/jpexpress'
 
