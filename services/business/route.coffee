@@ -4,6 +4,7 @@ route = require '../models/route'
 
 create = (data) ->
 	# create function always return a promise
+	data.full_name = data.from + ' - ' + data.destination
 	route.create(data).then (data) ->
 		return data
 	, (err) ->

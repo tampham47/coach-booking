@@ -9,6 +9,10 @@ angular.module('booking-mamangement.employee', [])
 
 .controller 'employee-ctrl', ($scope, $location, user) ->
 	console.log 'employee-ctrl'
+
+	$('#emp-panel').height $(window).height() - $('#emp-panel').offset().top - 50
+	$('#emp-panel').perfectScrollbar()
+
 	$scope.users = user.getall ->
 		$scope.model = $scope.users[0]
 

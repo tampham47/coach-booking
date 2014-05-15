@@ -8,13 +8,11 @@ html(ng-app='booking-mamangement')
 		link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
 
 		//- medium-editor
-		link(rel='stylesheet',
-			href='bower_components/medium-editor/dist/css/medium-editor.css')
-		link(rel='stylesheet',
-			href='bower_components/medium-editor/dist/css/themes/default.css')
+		link(rel='stylesheet', href='bower_components/medium-editor/dist/css/medium-editor.css')
+		link(rel='stylesheet', href='bower_components/medium-editor/dist/css/themes/default.css')
 
-		//- link(rel='stylesheet', href='/bower_components/_contents/studentfly.css')
-		//- link(rel='stylesheet', href='/bower_components/_contents/style.css')
+		link(rel='stylesheet', href='/bower_components/perfect-scrollbar/min/perfect-scrollbar-0.4.10.min.css')
+		link(rel='stylesheet', href='/bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css')
 
 	body(style='padding:60px 30px;')
 
@@ -23,7 +21,7 @@ html(ng-app='booking-mamangement')
 		div.row.clearfix(ng-controller='nav-ctrl')
 			div.col-md-12.column
 				nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
-					div.navbar-header
+					div.navbar-header(style='margin-left:14px')
 						button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
 							span.sr-only Toggle navigation
 							span.icon-bar
@@ -50,7 +48,7 @@ html(ng-app='booking-mamangement')
 						ul.nav.navbar-nav.navbar-right(style='padding-right:40px')
 							li.dropdown
 								a.dropdown-toggle(href='#', data-toggle='dropdown')
-									| {{user.username}}
+									| {{user.full_name || user.username}}
 									b.caret
 								ul.dropdown-menu
 									li
@@ -80,6 +78,11 @@ html(ng-app='booking-mamangement')
 		script(src='bower_components/medium-editor/dist/js/medium-editor.js')
 		script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
 		script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')
+		script(src='bower_components/underscore.string/dist/underscore.string.min.js')
+		script(src='/bower_components/perfect-scrollbar/min/perfect-scrollbar-0.4.10.with-mousewheel.min.js')
+
+		script(src='bower_components/moment/min/moment.min.js')
+		script(src='bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js')
 
 		script(src='/scripts.js')
 		script(src='/templates.js')

@@ -6,16 +6,18 @@
 				| Thêm
 			h3(style='margin:0px') DS Nhân viên
 
-		div.list-group
+		div.list-group#emp-panel(style='position:relative; margin:0px auto; padding:0px; min-height:200px; overflow: hidden;')
 			a.list-group-item(ng-repeat='item in users',
 				ng-href='#/employee',
 				ng-click='set_model(item)')
 				| {{item.full_name || item.username}}
 
 	.col-md-9
-		//- .page-header(style='margin-top:0px; margin-bottom:12px')
-			a.btn.btn-success.pull-right(href='#/employee/new') Thêm nhân viên
-			h2(style='margin:0px') Danh sách nhân viên
+		.page-header(style='margin-top:0px; margin-bottom:12px')
+			a.btn.btn-success.btn-sm.pull-right(href='#/employee/new')
+				i.glyphicon.glyphicon-plus
+				| Thêm
+			h3(style='margin:0px') Thông tin nhân viên
 
 		form.form-horizontal
 			// Text input

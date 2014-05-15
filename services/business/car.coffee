@@ -13,13 +13,17 @@ getById = (id) ->
 	Car.getById(id).exec()
 
 getAll = ->
-	Car.find({}).exec()
+	Car.find({}).populate('_route').exec()
 
 get = (index, limit) ->
 	Car.find({}).sort({created_date: -1})
 	.skip(index).limit(limit).exec()
 
+GetByRoute = (_route) ->
+	Car.find({ _route: _route}).populate('_route').exec()
+
 
 module.exports = {
 	create, update, getById, getAll, get
+	GetByRoute
 }

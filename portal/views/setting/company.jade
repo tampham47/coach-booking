@@ -2,7 +2,7 @@ div(ng-controller='company-new-ctrl')
 	.page-header(style='margin-top:0px; margin-bottom:12px')
 		h3(style='margin:0px') Thông tin công ty
 
-	form.form-horizontal
+	form.form-horizontal(name='company_info')
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='company_name') Tên công ty
@@ -42,6 +42,11 @@ div(ng-controller='company-new-ctrl')
 			label.col-md-2.control-label(for='full_name') Họ Tên
 			.col-md-8
 				input#full_name.form-control.input-md(ng-model='user.full_name', name='full_name', type='text', placeholder='', required='')
+		// Text input
+		.form-group
+			label.col-md-2.control-label(for='email') Email
+			.col-md-8
+				input#email.form-control.input-md(ng-model='user.email', name='email', type='email', placeholder='', required='')
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='password') Mật khẩu

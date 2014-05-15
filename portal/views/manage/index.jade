@@ -1,14 +1,15 @@
 .row
 	.col-md-3
-		.page-header(style='margin-top:0px; margin-bottom:12px')
-			h3(style='margin:0px') Danh sách Xe
-		div.list-group
-			a.list-group-item(ng-href='#/') XE GIƯỜNG NẰM TÀI 1
-			a.list-group-item(ng-href='#/') XE GIƯỜNG NẰM TÀI 2
-			a.list-group-item(ng-href='#/') XE GIƯỜNG NẰM TÀI 3
-			a.list-group-item(ng-href='#/') XE GIƯỜNG NẰM TÀI 4
-			a.list-group-item(ng-href='#/') XE GIƯỜNG NẰM TÀI 5
-			a.list-group-item(ng-href='#/') XE GIƯỜNG NẰM TÀI 6
+		p(style='margin-bottom:2px') CHỌN TUYẾN
+		select.form-control(ng-model='_route',
+			ng-options='item._id as item.from + " - " + item.destination for item in routes')
+
+		p(style='margin-top:14px; margin-bottom:2px') DANH SÁCH XE
+		i(ng-if='data.length == 0') Không có xe nào cho tuyến được chọn.
+		div.list-group#car-panel(style='position:relative; margin:0px auto; padding:0px; min-height:200px; overflow: hidden;')
+			a.list-group-item(ng-href='#/',
+				ng-click='set_model(item)',
+				ng-repeat='item in data') {{ item.name }}
 
 	.col-md-9
 		.page-header(style='margin-top:0px; margin-bottom:12px')
@@ -49,13 +50,13 @@
 					i.glyphicon.glyphicon-calendar
 
 		.row
-			.col-md-3(ng-repeat='item in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]')
-				div.thumbnail(ng-if='item % 3 == 0', style='margin-bottom:10px; text-align:center')
+			.col-md-3(ng-repeat='item in currentCar.seats')
+				//- div.thumbnail(ng-if='item % 3 == 0', style='margin-bottom:10px; text-align:center')
 					| [A{{item}}] Phạm Minh Tâm
 					br
 					small 01643-652-922
-				div.thumbnail(ng-if='item % 3 != 0', style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
-					b [A{{item}}]
+				div.thumbnail(style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
+					b {{item}}
 					br
 					a(href='#') Đặt Vé
 

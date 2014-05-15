@@ -7,5 +7,6 @@ angular.module('booking-mamangement.booking')
 		controller: 'choosedone-ctrl'
 		templateUrl: 'views/booking/choose_done.jade'
 
-.controller 'choosedone-ctrl', ($scope, $location) ->
+.controller 'choosedone-ctrl', ($scope, $rootScope, booking) ->
 	console.log 'choosedone-ctrl'
+	$scope.model = $rootScope.model

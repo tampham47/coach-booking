@@ -7,15 +7,16 @@ angular.module('booking-mamangement.booking')
 		controller: 'chooseseat-ctrl'
 		templateUrl: 'views/booking/choose_seat.jade'
 
-.controller 'chooseseat-ctrl', ($scope, $location) ->
+.controller 'chooseseat-ctrl', ($scope, $rootScope) ->
 	console.log 'chooseseat-ctrl'
 	$scope.choose =
 		number: 0
 		seats: ''
-	$scope.seats = []
+	_s = $rootScope.model.car.seats
+	seats = $scope.seats = []
 
-	for item in ['A1','A2','A3','A4','A5','A6','B1','B2','B3','B4','B5','B6']
-		$scope.seats.push
+	for item in _s
+		seats.push
 			name: item
 			checked: 'NO'
 
@@ -23,13 +24,17 @@ angular.module('booking-mamangement.booking')
 		_choose =
 			number: 0
 			seats: ''
+			selected_seats: []
 		for item in $scope.seats
 			if item.checked is 'YES'
 				_choose.number += 1
 				_choose.seats += item.name + ', '
+				_choose.selected_seats.push item.name
 		$scope.choose = _choose
 
-
 	$scope.changed = (item) ->
-		console.log item
 		choosenSeats()
+
+	$scope.next = ->
+		$rootScope.model.selected_seats = $scope.choose.selected_seats
+		$rootScope.booking_template = 'views/booking/choose_info.jade'

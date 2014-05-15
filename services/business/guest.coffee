@@ -1,9 +1,11 @@
 'use strict'
 
 Guest = require '../models/guest'
+phone = require 'phone'
 
 create = (data) ->
-	# create function always return a promise
+	# standing phone number
+	data.phone_number = phone(data.phone_number, 'VN')[0]
 	Guest.create(data)
 
 update = (id, data) ->

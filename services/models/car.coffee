@@ -29,6 +29,11 @@ CarSchema = new Schema
 	notes:
 		type: String
 
+	# 0: this car is on, you can books.
+	# 1: this car is off
+	status:
+		type: Number
+
 	created_date:
 		type: Date
 		default: Date.now

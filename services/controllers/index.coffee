@@ -13,15 +13,15 @@ allowCors = (request, response, next) ->
 		next()
 
 checking_authentication = (req, res, next) ->
-	console.log 'checking_authentication'
-	console.log req.user
-	console.log req.isAuthenticated()
+	# console.log 'checking_authentication'
+	# console.log req.user
+	# console.log req.isAuthenticated()
 
 	if (req.url is '/account/login') or req.isAuthenticated()
-		console.log 'next'
+		# console.log 'next'
 		next()
 	else
-		console.log '401'
+		# console.log '401'
 		# next()
 		res.send 401 # Unauthorized
 

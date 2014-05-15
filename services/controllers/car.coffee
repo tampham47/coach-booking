@@ -8,12 +8,13 @@ create = (req, res) ->
 	tmp = _str.words data.seats, ','
 	seats = []
 	for item in tmp
-		if item?
+		if _str.trim(item) != ''
 			seats.push (_str.trim item).toUpperCase()
 
 	data.seats = seats
-	data._company = req.user._company
+	data.name = data.name.toUpperCase()
 
+	data._company = req.user._company
 	car.create(data).then (data) ->
 		res.send data
 	, (err) ->
@@ -23,7 +24,13 @@ getAll = (req, res) ->
 	car.getAll().then (data) ->
 		res.send data
 
+GetByRoute = (req, res) ->
+	_route = req.query._route
+	car.GetByRoute(_route).then (data) ->
+		res.send data
+
 
 module.exports = (app) ->
 	app.post '/car/create', create
 	app.get '/car/getAll', getAll
+	app.get '/car/getbyroute', GetByRoute

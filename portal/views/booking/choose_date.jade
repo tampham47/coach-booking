@@ -7,22 +7,35 @@ div(ng-controller='choosedate-ctrl')
 		.form-group
 			label.col-md-2.control-label(for='date') Chọn Ngày
 			.col-md-8
-				input#date.form-control.input-md(name='date', type='text', placeholder='Ngày/tháng/năm', required='')
-				span.help-block Ngày 20 tháng 4 năm 2014
+				.dropdown
+					a#booking-date.dropdown-toggle(role='button', data-toggle='dropdown', data-target='#', href='#')
+						.input-group
+							input.form-control(type='text',
+								ng-blur = 'booking_date_blur()',
+								ng-model='model.booking_date')
+							span.input-group-addon
+								i.glyphicon.glyphicon-calendar
+					ul.dropdown-menu(role='menu', aria-labelledby='dLabel')
+						datetimepicker(data-ng-model='datepicker',
+							data-datetimepicker-config='{ dropdownSelector: "#booking-date", minView: "day" }')
+
+				//- input#date.form-control.input-md(name='date', type='text', placeholder='Ngày/tháng/năm', required='')
+				span.help-block Nhập ngày tháng theo chuẩn dd/MM/yyyy, hay chọn từ lịch.
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='route') Chọn tuyến
 			.col-md-8
-				input#route.form-control.input-md(name='route', type='text', required='')
+				select.form-control(ng-model='model._route',
+					ng-options='item._id as item.from + " - " + item.destination for item in routes')
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='amount') Số lượng
 			.col-md-8
-				input#amount.form-control.input-md(name='amount', type='text', placeholder='0')
-				span.help-block Đặt 0 ghế
+				input#amount.form-control.input-md(ng-model='model.amount_of_seats', name='amount', type='text', placeholder='0')
+				span.help-block Đặt {{model.amount_of_seats}} ghế
 		// Button (Double)
 		.form-group
 			label.col-md-2.control-label(for='next')
 			.col-md-8
-				button#next.btn.btn-success(name='next') Tiếp tục
+				button#next.btn.btn-success(ng-click='next()', name='next') Tiếp tục
 					i.glyphicon.glyphicon-chevron-right

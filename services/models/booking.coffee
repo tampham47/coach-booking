@@ -28,7 +28,8 @@ BookingSchema = new Schema
 
 	status:
 		type: String
-		enum: ['order', 'paid', 'cancel']
+		enum: ['order', 'confirm', 'paid', 'cancel']
+		default: 'order'
 
 	created_date:
 		type: Date

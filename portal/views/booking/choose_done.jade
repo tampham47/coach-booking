@@ -5,40 +5,41 @@ div(ng-controller='choosedone-ctrl')
 	.form-horizontal
 		// Text input
 		.form-group
-			label.col-md-2.control-label(for='date') Khách Hàng
-			.col-md-8
-				input#date.form-control.input-md(value='Phạm Minh Tâm', type='text', required='')
-		// Text input
-		.form-group
-			label.col-md-2.control-label(for='amount') Số điện thoại
-			.col-md-8
-				input#amount.form-control.input-md(value='01643-652-922', type='text')
-
-		// Text input
-		.form-group
 			label.col-md-2.control-label(for='amount') Ngày đi
 			.col-md-8
-				label.form-control 15/05/2014
+				label.form-control {{model.booking_date}}
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='amount') Xe
 			.col-md-8
-				label.form-control Xe tài 1
+				label.form-control {{ model.car.name }}
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='amount') Ghế chọn
 			.col-md-8
-				label.form-control A1, A2, A3
+				label.form-control
+					span(ng-repeat='item in model.selected_seats') {{item + ', '}}
+
+		// Text input
+		.form-group
+			label.col-md-2.control-label(for='full_name') Khách Hàng
+			.col-md-8
+				input#full_name.form-control.input-md(ng-model='model.user_info.full_name', type='text', required='')
+		// Text input
+		.form-group
+			label.col-md-2.control-label(for='phone_number') Số điện thoại
+			.col-md-8
+				input#phone_number.form-control.input-md(ng-model='model.user_info.phone_number', type='text')
 		// Textarea
 		.form-group
 			label.col-md-2.control-label(for='note-from') Điểm đón
 			.col-md-8
-				textarea#note-from.form-control(name='note-from')
+				textarea#note-from.form-control(ng-model='model.user_info.from', name='note-from')
 		// Textarea
 		.form-group
 			label.col-md-2.control-label(for='note-to') Điểm đến
 			.col-md-8
-				textarea#note-to.form-control(name='note-to')
+				textarea#note-to.form-control(ng-model='model.user_info.to', name='note-to')
 
 		// Button (Double)
 		.form-group

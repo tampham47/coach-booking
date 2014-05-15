@@ -1,60 +1,52 @@
 .row
 	.col-md-3
+		p(style='margin-bottom:2px') CHỌN TUYẾN
+		select.form-control(ng-model='_route',
+			ng-options='item._id as item.from + " - " + item.destination for item in routes')
+
+		p(style='margin-top:14px; margin-bottom:2px') DANH SÁCH XE
+		i(ng-if='data.length == 0') Không có xe nào cho tuyến được chọn.
+		div.list-group#car-panel(style='position:relative; margin:0px auto; padding:0px; min-height:200px; overflow: hidden;')
+			a.list-group-item(ng-href='#/car',
+				ng-click='set_model(item)',
+				ng-repeat='item in data') {{ item.name }}
+
+	.col-md-9
 		.page-header(style='margin-top:0px; margin-bottom:12px')
 			a.btn.btn-success.btn-sm.pull-right(href='#/car/new')
 				i.glyphicon.glyphicon-plus
 				| Thêm
-			h3(style='margin:0px') Danh sách xe
+			h3(style='margin:0px') Thông tin xe
 
-		div.list-group
-			a.list-group-item(ng-href='#/car',
-				ng-repeat='item in cars') {{ item.name }}
-			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 1
-			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 2
-			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 3
-			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 4
-			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 5
-			//- a.list-group-item(ng-href='#/car') XE GIƯỜNG NẰM TÀI 6
-
-	.col-md-9
 		.form-horizontal
 			// Text input
 			.form-group
-				label.col-md-2.control-label(for='car-name') Tên Xe
+				label.col-md-2.control-label Tên Xe
 				.col-md-8
-					label#car-name.form-control.input-md(name='car-name', type='text', placeholder='', required='')
+					label.form-control.input-md {{ model.name }}
 			// Text input
 			.form-group
-				label.col-md-2.control-label(for='chuyen') Tuyến
+				label.col-md-2.control-label Tuyến
 				.col-md-8
-					label#chuyen.form-control.input-md(name='chuyen', type='text', placeholder='')
+					label.form-control.input-md {{ model._route.from + ' - ' + model._route.destination }}
 			// Text input
 			.form-group
-				label.col-md-2.control-label(for='start-time') Giờ khởi hành
+				label.col-md-2.control-label Giờ khởi hành
 				.col-md-8
-					label#start-time.form-control.input-md(name='start-time', type='text', placeholder='giờ:phút')
-					//- span.help-block 17 giờ 30 phút
+					label.form-control.input-md {{ model.start_time }}
 			// Textarea
 			.form-group
-				label.col-md-2.control-label(for='seats') Danh sách ghế
+				label.col-md-2.control-label Tổng số ghế
 				.col-md-8
-					label#seats.form-control(name='seats')
-					span.help-block Nhập vào tên các ghế trên xe, các ghế cách nhau bởi dấu phẩy (,)
-					span.help-block Các ghế trên xe chỉ được nhập một lần, nên hãy cẩn thận.
+					label.form-control {{ model.seats.length }}
+					div(style='width:100%')
+						span.label.label-info(
+							ng-repeat='item in model.seats track by $index',
+							style='margin-right:4px; display:inline-block; width:50px')
+							| {{ item }}
 			// Textarea
 			.form-group
-				label.col-md-2.control-label(for='notes') Ghi chú
+				label.col-md-2.control-label Ghi chú
 				.col-md-8
-					label#notes.form-control(name='notes')
-			// Button (Double)
-			//- .form-group
-				label.col-md-2.control-label(for='next')
-				.col-md-8
-					button#next.btn.btn-success(name='next') Thêm xe
-					a#cancel.btn.btn-default(href='#/car', style='margin-left:4px') Hủy
-
-
-		//- div.thumbnail(ng-repeat='item in [1,2,3,4,5,6,7,8,9,10]')
-			//- .btn.btn-warning.pull-right Danh sách chỗ ngồi
-			p Xe giường nằm tài {{item}}
-			p Khởi hành lúc 17h00 hằng ngày
+					label.form-control(style='min-height:43px; height:auto')
+						| {{ model.notes }}

@@ -44,9 +44,18 @@
 			.form-group
 				label.col-md-2.control-label(for='seats') Danh sách ghế
 				.col-md-8
-					textarea#seats.form-control(name='seats', ng-model='model.seats')
+					textarea#seats.form-control(name='seats',
+						ng-model='model.seats',
+						ng-change='change_seats(model.seats)')
 					span.help-block Nhập vào tên các ghế trên xe, các ghế cách nhau bởi dấu phẩy (,)
 					span.help-block Các ghế trên xe chỉ được nhập một lần, nên hãy cẩn thận.
+
+					span.help-block Tổng số ghế: {{ seats.length }}
+					span
+						span.label.label-info(ng-repeat='item in seats track by $index',
+							style='margin-right:4px; display:inline-block; width:50px') {{ item }}
+
+
 			// Textarea
 			.form-group
 				label.col-md-2.control-label(for='notes') Ghi chú

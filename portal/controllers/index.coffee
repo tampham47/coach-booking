@@ -8,6 +8,7 @@ angular.module 'booking-mamangement', [
 	'ngResource'
 	'ngSanitize'
 	'http-auth-interceptor'
+	'ui.bootstrap.datetimepicker'
 	'booking-mamangement.templates'
 
 	'booking-mamangement.account'

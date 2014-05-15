@@ -13,8 +13,7 @@ angular.module('booking-mamangement.company')
 	$scope.user = {}
 
 	$scope.submit = ->
-		console.log $scope.model
-		console.log $scope.user
+		return if !$scope.company_info.$valid
 
 		company.create {company: $scope.model, user: $scope.user}, (data) ->
 			if data.err?

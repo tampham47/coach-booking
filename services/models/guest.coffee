@@ -4,13 +4,16 @@ mongooes = require 'mongoose'
 Schema = mongooes.Schema
 
 GuestSchema = new Schema
-	name:
+	full_name:
 		type: String
-
-	email:
-		type: String
+		required: true
 
 	phone_number:
+		type: String
+		unique: true
+		required: true
+
+	email:
 		type: String
 
 	address:

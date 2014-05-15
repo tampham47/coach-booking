@@ -8,7 +8,7 @@ register = (req, res) ->
 
 getUser = (request, response) ->
 	if request.isAuthenticated()
-		response.send _(request.user).pick('_id', 'username', 'role', '_company').value()
+		response.send _(request.user).pick('_id', 'username', 'role', '_company', 'full_name').value()
 	else
 		response.send 401 # Unauthorized
 

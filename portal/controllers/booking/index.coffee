@@ -7,9 +7,9 @@ angular.module('booking-mamangement.booking', [])
 		controller: 'booking-ctrl'
 		templateUrl: 'views/booking/index.jade'
 
-.controller 'booking-ctrl', ($scope, $location) ->
+.controller 'booking-ctrl', ($scope, $rootScope, $location) ->
 	console.log 'booking-ctrl'
-	$scope.booking_template = 'views/booking/choose_date.jade'
+	$rootScope.booking_template = 'views/booking/choose_date.jade'
 
 	$scope.nav = (template) ->
-		$scope.booking_template = 'views/booking/' + template
+		$rootScope.booking_template = 'views/booking/' + template

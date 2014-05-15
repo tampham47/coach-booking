@@ -1,14 +1,14 @@
 'use strict'
 
 guest = require '../business/guest'
+phone = require 'phone'
 
 create = (req, res) ->
 	data = req.body
 	guest.create(data).then ->
 		res.send data
 	, (err) ->
-		res.send
-			err: err
+		res.send {err: err}
 
 getAll = (req, res) ->
 	guest.getAll().then (data) ->
