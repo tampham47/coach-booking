@@ -9,8 +9,8 @@ angular.module('booking-mamangement.booking')
 
 .controller 'chooseinfo-ctrl', ($scope, $rootScope) ->
 	console.log 'chooseinfo-ctrl'
-	$scope.user_info = $rootScope.model.user_info
+	$scope.guest = $rootScope.guest || {}
 
 	$scope.next = ->
-		$rootScope.model.user_info = $scope.user_info
+		$rootScope.guest = $scope.guest
 		$rootScope.booking_template = 'views/booking/choose_done.jade'

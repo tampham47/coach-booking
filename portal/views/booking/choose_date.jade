@@ -12,7 +12,7 @@ div(ng-controller='choosedate-ctrl')
 						.input-group
 							input.form-control(type='text',
 								ng-blur = 'booking_date_blur()',
-								ng-model='model.booking_date')
+								ng-model='booking.str_date')
 							span.input-group-addon
 								i.glyphicon.glyphicon-calendar
 					ul.dropdown-menu(role='menu', aria-labelledby='dLabel')
@@ -25,14 +25,14 @@ div(ng-controller='choosedate-ctrl')
 		.form-group
 			label.col-md-2.control-label(for='route') Chọn tuyến
 			.col-md-8
-				select.form-control(ng-model='model._route',
+				select.form-control(ng-model='booking._route',
 					ng-options='item._id as item.from + " - " + item.destination for item in routes')
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='amount') Số lượng
 			.col-md-8
-				input#amount.form-control.input-md(ng-model='model.amount_of_seats', name='amount', type='text', placeholder='0')
-				span.help-block Đặt {{model.amount_of_seats}} ghế
+				input#amount.form-control.input-md(ng-model='booking.amount_of_seats', name='amount', type='text', placeholder='0')
+				span.help-block Đặt {{booking.amount_of_seats}} ghế
 		// Button (Double)
 		.form-group
 			label.col-md-2.control-label(for='next')

@@ -12,7 +12,7 @@ angular.module('booking-mamangement.booking')
 	$scope.choose =
 		number: 0
 		seats: ''
-	_s = $rootScope.model.car.seats
+	_s = $rootScope.booking.car.seats
 	seats = $scope.seats = []
 
 	for item in _s
@@ -36,5 +36,5 @@ angular.module('booking-mamangement.booking')
 		choosenSeats()
 
 	$scope.next = ->
-		$rootScope.model.selected_seats = $scope.choose.selected_seats
+		$rootScope.booking.selected_seats = $scope.choose.selected_seats
 		$rootScope.booking_template = 'views/booking/choose_info.jade'

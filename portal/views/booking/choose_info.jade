@@ -7,22 +7,22 @@ div(ng-controller='chooseinfo-ctrl')
 		.form-group
 			label.col-md-2.control-label(for='fullname') Họ Tên
 			.col-md-8
-				input#fullname.form-control.input-md(ng-model='user_info.full_name', name='fullname', type='text', placeholder='', required='')
+				input#fullname.form-control.input-md(ng-model='guest.full_name', name='fullname', type='text', placeholder='', required='')
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='phone') Số điện thoại
 			.col-md-8
-				input#phone.form-control.input-md(ng-model='user_info.phone_number', name='phone', type='text', placeholder='', required='')
+				input#phone.form-control.input-md(ng-model='guest.phone_number', name='phone', type='text', placeholder='', required='')
 		// Textarea
 		.form-group
 			label.col-md-2.control-label(for='note-from') Điểm đón
 			.col-md-8
-				textarea#note-from.form-control(ng-model='user_info.from', name='note-from')
+				textarea#note-from.form-control(ng-model='booking.from', name='note-from')
 		// Textarea
 		.form-group
 			label.col-md-2.control-label(for='note-to') Điểm đến
 			.col-md-8
-				textarea#note-to.form-control(ng-model='user_info.to', name='note-to')
+				textarea#note-to.form-control(ng-model='booking.destination', name='note-to')
 		// Button (Double)
 		.form-group
 			label.col-md-2.control-label(for='next')

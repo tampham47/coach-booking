@@ -8,7 +8,7 @@
 		i(ng-if='data.length == 0') Không có xe nào cho tuyến được chọn.
 		div.list-group#car-panel(style='position:relative; margin:0px auto; padding:0px; min-height:200px; overflow: hidden;')
 			a.list-group-item(ng-href='#/',
-				ng-click='set_model(item)',
+				ng-click='car_changed(item)',
 				ng-repeat='item in data') {{ item.name }}
 
 	.col-md-9
@@ -20,45 +20,30 @@
 			div.btn-group.pull-right(style='margin-right:4px')
 				button.btn.btn-default.btn-sm.active(type='button') Grid
 				button.btn.btn-default.btn-sm(type='button') List
-			h3(style='margin:0px') Xe giường nằm tài 1
+			h3(style='margin:0px') {{ current_car.name }} - [{{ selected_date.format('DD/MM') }}]
 
 
 		ul.nav.nav-pills(style='margin-bottom:10px')
-			li.active
-				a(href='#') Thứ 2
-					small [22/4]
-			li
-				a(href='#') Thứ 3
-					small [23/4]
-			li
-				a(href='#') Thứ 4
-					small [24/4]
-			li
-				a(href='#') Thứ 5
-					small [25/4]
-			li
-				a(href='#') Thứ 6
-					small [26/4]
-			li
-				a(href='#') Thứ 7
-					small [27/4]
-			li
-				a(href='#') CN
-					small [28/4]
+			li(ng-repeat='date in sevendays track by $index')
+				a(ng-href='#/', ng-click='date_changed(date.value)') {{ date.weekday }}
+					small [{{ date.str }}]
 			li.pull-right
-				a(href='#') Ngày
+				a(ng-href='#/') Ngày
 					i.glyphicon.glyphicon-calendar
 
 		.row
-			.col-md-3(ng-repeat='item in currentCar.seats')
-				//- div.thumbnail(ng-if='item % 3 == 0', style='margin-bottom:10px; text-align:center')
-					| [A{{item}}] Phạm Minh Tâm
-					br
-					small 01643-652-922
-				div.thumbnail(style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
-					b {{item}}
+			.col-md-3(ng-repeat='item in seat_list')
+				div.thumbnail(ng-if='item.value == null',
+					style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
+					b {{ item.name }}
 					br
 					a(href='#') Đặt Vé
+				div.thumbnail(ng-if='item.value != null',
+					style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
+					| [{{ item.name }}] &nbsp;
+					b {{ item.value._guest.full_name }}
+					br
+					span {{ item.value._guest.phone_number }}
 
 		.row(style='margin-top:50px')
 			.col-md-12
@@ -67,7 +52,7 @@
 						| Trích xuất
 						i.glyphicon.glyphicon-chevron-right
 
-					| Thống kê đặt vé ngày 22/4/2014. (Vào lúc 16h53)
+					| Thống kê đặt vé ngày {{ selected_date.format("DD/MM/YYYY") }}.
 					br
 					| Số ghế đẵ đặt: 28 ghế
 					br

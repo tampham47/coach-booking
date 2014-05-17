@@ -7,44 +7,45 @@ div(ng-controller='choosedone-ctrl')
 		.form-group
 			label.col-md-2.control-label(for='amount') Ngày đi
 			.col-md-8
-				label.form-control {{model.booking_date}}
+				label.form-control {{booking.str_date}}
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='amount') Xe
 			.col-md-8
-				label.form-control {{ model.car.name }}
+				label.form-control {{ booking.car.name }}
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='amount') Ghế chọn
 			.col-md-8
-				label.form-control
-					span(ng-repeat='item in model.selected_seats') {{item + ', '}}
+				label.form-control(style='height: auto; min-height:36px')
+					span(ng-repeat='item in booking.selected_seats') {{item + ', '}}
+				span.help-block Đã đặt {{booking.selected_seats.length}} ghế.
 
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='full_name') Khách Hàng
 			.col-md-8
-				input#full_name.form-control.input-md(ng-model='model.user_info.full_name', type='text', required='')
+				input#full_name.form-control.input-md(ng-model='guest.full_name', type='text', required='')
 		// Text input
 		.form-group
 			label.col-md-2.control-label(for='phone_number') Số điện thoại
 			.col-md-8
-				input#phone_number.form-control.input-md(ng-model='model.user_info.phone_number', type='text')
+				input#phone_number.form-control.input-md(ng-model='guest.phone_number', type='text', required='')
 		// Textarea
 		.form-group
 			label.col-md-2.control-label(for='note-from') Điểm đón
 			.col-md-8
-				textarea#note-from.form-control(ng-model='model.user_info.from', name='note-from')
+				textarea#note-from.form-control(ng-model='booking.from', name='note-from')
 		// Textarea
 		.form-group
 			label.col-md-2.control-label(for='note-to') Điểm đến
 			.col-md-8
-				textarea#note-to.form-control(ng-model='model.user_info.to', name='note-to')
+				textarea#note-to.form-control(ng-model='booking.destination', name='note-to')
 
 		// Button (Double)
 		.form-group
 			label.col-md-2.control-label(for='next')
 			.col-md-8
-				button#next.btn.btn-success(name='next') Hoàn tất
+				button#next.btn.btn-success(ng-click='complete()', name='next') Hoàn tất
 					i.glyphicon.glyphicon-chevron-right
 

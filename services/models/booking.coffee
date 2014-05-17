@@ -14,16 +14,19 @@ BookingSchema = new Schema
 		ref: 'jp_car'
 		require: true
 
-	booking_date:
+	date:
 		type: Date
 
-	seats:
-		type: [String]
-
-	note_from:
+	str_date:
 		type: String
 
-	note_to:
+	seat:
+		type: String
+
+	from:
+		type: String
+
+	destination:
 		type: String
 
 	status:

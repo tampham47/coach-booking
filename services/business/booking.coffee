@@ -2,6 +2,10 @@
 
 Booking = require '../models/booking'
 
+GetByCar = (_car, str_date) ->
+	Booking.find({_car: _car, str_date: str_date})
+	.populate('_guest').exec()
+
 create = (data) ->
 	# create function always return a promise
 	Booking.create(data)
@@ -21,5 +25,6 @@ get = (index, limit) ->
 
 
 module.exports = {
-	create, update, getById, getAll, get
+	create, update,
+	getById, getAll, get, GetByCar
 }

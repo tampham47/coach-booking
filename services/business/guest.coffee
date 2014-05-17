@@ -1,24 +1,27 @@
 'use strict'
 
-Guest = require '../models/guest'
+guest = require '../models/guest'
 phone = require 'phone'
 
 create = (data) ->
 	# standing phone number
 	data.phone_number = phone(data.phone_number, 'VN')[0]
-	Guest.create(data)
+	guest.find({phone_number: data.phone_number}).exec()
+	.then (_guest) ->
+		return _guest[0] if _guest.length > 0
+		guest.create(data)
 
 update = (id, data) ->
-	Guest.findByIdAndUpdate(id, data).exec()
+	guest.findByIdAndUpdate(id, data).exec()
 
 getById = (id) ->
-	Guest.getById(id).exec()
+	guest.getById(id).exec()
 
 getAll = ->
-	Guest.find({}).exec()
+	guest.find({}).exec()
 
 get = (index, limit) ->
-	Guest.find({}).sort({created_date: -1})
+	guest.find({}).sort({created_date: -1})
 	.skip(index).limit(limit).exec()
 
 
