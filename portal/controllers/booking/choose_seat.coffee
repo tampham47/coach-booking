@@ -7,33 +7,48 @@ angular.module('booking-mamangement.booking')
 		controller: 'chooseseat-ctrl'
 		templateUrl: 'views/booking/choose_seat.jade'
 
-.controller 'chooseseat-ctrl', ($scope, $rootScope) ->
+.controller 'chooseseat-ctrl', ($scope, $rootScope, booking) ->
 	console.log 'chooseseat-ctrl'
-	$scope.choose =
-		number: 0
-		seats: ''
-	_s = $rootScope.booking.car.seats
-	seats = $scope.seats = []
+	_booking = $rootScope.booking
 
-	for item in _s
-		seats.push
-			name: item
-			checked: 'NO'
+	$scope.choose = {number: 0, seats: ''}
 
-	choosenSeats = ->
+	set_seat = ->
 		_choose =
 			number: 0
 			seats: ''
 			selected_seats: []
-		for item in $scope.seats
+
+		for item in $scope.seat_list
 			if item.checked is 'YES'
 				_choose.number += 1
 				_choose.seats += item.name + ', '
 				_choose.selected_seats.push item.name
-		$scope.choose = _choose
+		return _choose
+
+	load_seatList = (car, bookings) ->
+		seat_list = []; _t = []
+		for item in bookings
+			_t[item.seat] = item
+
+		for item in car.seats
+			seat_list.push
+				name: item
+				checked: 'NO'
+				value: _t[item] || null
+		return seat_list
+
+	load_booking = (car, str_date) ->
+		booking.get_by_car({_car: car._id, str_date: str_date})
+		.$promise.then (_result) ->
+			$scope.seat_list = load_seatList car, _result.data
+
+	# init data
+	load_booking _booking.car, _booking.str_date
+
 
 	$scope.changed = (item) ->
-		choosenSeats()
+		$scope.choose = set_seat()
 
 	$scope.next = ->
 		$rootScope.booking.selected_seats = $scope.choose.selected_seats

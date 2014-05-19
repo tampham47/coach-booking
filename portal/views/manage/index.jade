@@ -12,48 +12,52 @@
 				ng-repeat='item in data') {{ item.name }}
 
 	.col-md-9
-		.page-header(style='margin-top:0px; margin-bottom:12px')
-			div.btn-group.pull-right
-				button.btn.btn-default.btn-sm.active(type='button') Tất cả
-				button.btn.btn-default.btn-sm(type='button') Đã đặt
-				button.btn.btn-default.btn-sm(type='button') Còn trống
-			div.btn-group.pull-right(style='margin-right:4px')
-				button.btn.btn-default.btn-sm.active(type='button') Grid
-				button.btn.btn-default.btn-sm(type='button') List
-			h3(style='margin:0px') {{ current_car.name }} - [{{ selected_date.format('DD/MM') }}]
+		div.alert.alert-warning(ng-if='current_car == -1')
+			| Không có xe nào được chọn
+
+		div(ng-if='current_car != -1')
+			.page-header(style='margin-top:0px; margin-bottom:12px')
+				//- div.btn-group.pull-right
+					button.btn.btn-default.btn-sm.active(type='button') Tất cả
+					button.btn.btn-default.btn-sm(type='button') Đã đặt
+					button.btn.btn-default.btn-sm(type='button') Còn trống
+				div.btn-group.pull-right(style='margin-right:4px')
+					button.btn.btn-default.btn-sm.active(type='button') Lưới
+					button.btn.btn-default.btn-sm(type='button') Danh sách
+				h3(style='margin:0px') {{ current_car.name }} - [{{ selected_date.format('DD/MM') }}]
 
 
-		ul.nav.nav-pills(style='margin-bottom:10px')
-			li(ng-repeat='date in sevendays track by $index')
-				a(ng-href='#/', ng-click='date_changed(date.value)') {{ date.weekday }}
-					small [{{ date.str }}]
-			li.pull-right
-				a(ng-href='#/') Ngày
-					i.glyphicon.glyphicon-calendar
+			ul.nav.nav-pills(style='margin-bottom:10px')
+				li(ng-repeat='date in sevendays track by $index')
+					a(ng-href='#/', ng-click='date_changed(date.value)') {{ date.weekday }}
+						small [{{ date.str }}]
+				li.pull-right
+					a(ng-href='#/') Ngày
+						i.glyphicon.glyphicon-calendar
 
-		.row
-			.col-md-3(ng-repeat='item in seat_list')
-				div.thumbnail(ng-if='item.value == null',
-					style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
-					b {{ item.name }}
-					br
-					a(href='#') Đặt Vé
-				div.thumbnail(ng-if='item.value != null',
-					style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
-					| [{{ item.name }}] &nbsp;
-					b {{ item.value._guest.full_name }}
-					br
-					span {{ item.value._guest.phone_number }}
+			.row
+				.col-md-3(ng-repeat='item in seat_list')
+					div.thumbnail(ng-if='item.value == null',
+						style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
+						b {{ item.name }}
+						br
+						a(href='#') Đặt Vé
+					div.thumbnail(ng-if='item.value != null',
+						style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
+						| [{{ item.name }}] &nbsp;
+						b {{ item.value._guest.full_name }}
+						br
+						span {{ item.value._guest.phone_number }}
 
-		.row(style='margin-top:50px')
-			.col-md-12
-				p
-					.btn.btn-success.pull-right
-						| Trích xuất
-						i.glyphicon.glyphicon-chevron-right
+			.row(style='margin-top:50px')
+				.col-md-12
+					p
+						.btn.btn-success.pull-right
+							| Trích xuất
+							i.glyphicon.glyphicon-chevron-right
 
-					| Thống kê đặt vé ngày {{ selected_date.format("DD/MM/YYYY") }}.
-					br
-					| Số ghế đẵ đặt: 28 ghế
-					br
-					| Số ghế trống: 4 ghế
+						| Thống kê đặt vé ngày {{ selected_date.format("DD/MM/YYYY") }}.
+						br
+						| Số ghế đẵ đặt: 28 ghế
+						br
+						| Số ghế trống: 4 ghế

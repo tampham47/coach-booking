@@ -3,12 +3,17 @@ div(ng-controller='chooseseat-ctrl')
 		h3(style='margin:0px') Chọn ghế
 
 	.row
-		.col-md-3(ng-repeat='item in seats',
+		.col-md-3(ng-repeat='item in seat_list',
 			style='margin-bottom:4px')
-			.input-group
+			.input-group.has-success(ng-if='item.value == null')
 				span.input-group-addon
 					input(ng-model='item.checked', ng-change='changed(item)', ng-true-value="YES", ng-false-value="NO", type='checkbox', name='sit-{{item}}', id='sit-{{item}}')
 				label.form-control(for='sit-{{item}}') {{item.name}}
+
+			.input-group.has-warning(ng-if='item.value != null')
+				span.input-group-addon
+					input(disabled='true', ng-model='item.checked', ng-change='changed(item)', ng-true-value="YES", ng-false-value="NO", type='checkbox', name='sit-{{item}}', id='sit-{{item}}')
+				label.form-control(for='sit-{{item}}') {{item.name}} - {{item.value._guest.full_name}}
 
 
 	.row(style='margin-top:50px')

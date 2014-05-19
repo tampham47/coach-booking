@@ -17,7 +17,6 @@ angular.module('booking-mamangement.manage', [])
 		r = []; i = 0;
 		while i < 7
 			date = moment().add('day', i)
-			# console.log date.format 'dddd'
 			r.push
 				weekday: date.format 'dddd'
 				str: date.format 'DD/MM'
@@ -29,7 +28,8 @@ angular.module('booking-mamangement.manage', [])
 		car.get_by_route({_route: _route}).$promise.then (data) ->
 			$scope.data = data
 
-			$scope.current_car = {}
+			$scope.current_car = -1
+			$scope.seat_list = []
 			if data.length > 0
 				$scope.current_car = data[0]
 				fill()
@@ -51,13 +51,7 @@ angular.module('booking-mamangement.manage', [])
 			$scope.seat_list = load_seatList $scope.current_car, re.data
 
 	fill = ->
-		$scope.seat_list = []
 		_car = $scope.current_car._id
-		# console.log _car
-		# if !_car?
-		# 	$scope.seat_list = []
-		# 	return
-
 		str_date = $scope.selected_date.format 'DD/MM/YYYY'
 		load_booking _car, str_date
 
