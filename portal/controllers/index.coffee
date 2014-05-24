@@ -9,6 +9,7 @@ angular.module 'booking-mamangement', [
 	'ngSanitize'
 	'http-auth-interceptor'
 	'ui.bootstrap.datetimepicker'
+	'datePicker'
 	'booking-mamangement.templates'
 
 	'booking-mamangement.account'

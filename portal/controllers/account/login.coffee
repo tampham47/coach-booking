@@ -7,10 +7,9 @@ angular.module('booking-mamangement.account')
 # 		controller: 'account-ctrl'
 # 		templateUrl: 'views/account/index.jade'
 
-.controller 'account-login-ctrl', ($scope, $location, auth) ->
+.controller 'account-login-ctrl', ($scope, $location, auth, company, user) ->
 	console.log 'account-login-ctrl'
-	# $scope.credential = {}
-	# $scope.model = {}
+	$scope.panel = 'login'
 
 	# Show login modal
 	$scope.$on 'event:auth-loginRequired', ->
@@ -27,18 +26,29 @@ angular.module('booking-mamangement.account')
 		jQuery('body > .modal').modal 'hide'
 
 	$scope.login = ->
-		# alert 'login'
-		# return if $scope.form.$invalid
+		if $scope.login_form.$invalid
+			$scope.err =
+				message: 'Please correct this form.'
+			return
 
-		console.log 'credential'
-		console.log $scope.credential
-		# credential =
-		# 	username: 'tampham47'
-		# 	password: '1we23rw4t'
-		# console.log credential
-
-		auth.login($scope.credential).then ->
-			$scope.error = false
+		auth.login($scope.credential).then (_result) ->
+			return
 		, (err) ->
-			console.log err
-			$scope.error = true
+			$scope.err =
+				message: 'User name or password is invalid.'
+
+	$scope.panel_changed = (panel) ->
+		$scope.panel = panel
+
+	$scope.registration = ->
+		if !$scope.registration_form.$valid
+			$scope.err =
+				message: 'Please correct this form.'
+			return
+
+		company.create {company: $scope.model, user: $scope.user}, (data) ->
+			if data.err?
+				$scope.err = data.err
+			else
+				$scope.model = $scope.user = $scope.err = null
+				$scope.panel = 'login'

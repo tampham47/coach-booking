@@ -5,18 +5,24 @@ user = require '../business/user'
 
 create = (req, res) ->
 	console.log 'company/create'
-	companyData = req.body.company
-	userData = req.body.user
+	c = req.body.company
+	u = req.body.user
 
-	company.create(companyData)
-	.then (data) ->
-		userData._company = data._id
-		userData.role = 'admin'
-		user.register(userData, userData.password)
-	.then (data) ->
-		res.send data
-	, (err) ->
-		res.send {err: err}
+	user.GetByUserName(u.username).then (_user) ->
+		if _user?
+			err =
+				message: 'This email has been used.'
+			res.send { err: err }
+		else
+			company.create(c)
+			.then (data) ->
+				u._company = data._id
+				u.role = 'admin'
+				user.register(u, u.password)
+			.then (data) ->
+				res.send data
+			, (err) ->
+				res.send {err: err}
 
 getAll = (req, res) ->
 	company.getAll().then (data) ->

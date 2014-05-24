@@ -31,9 +31,12 @@
 				li(ng-repeat='date in sevendays track by $index')
 					a(ng-href='#/', ng-click='date_changed(date.value)') {{ date.weekday }}
 						small [{{ date.str }}]
-				li.pull-right
-					a(ng-href='#/') Ngày
-						i.glyphicon.glyphicon-calendar
+
+				li.pull-right.dropdown
+					a.dropdown-toggle
+						| [{{ (model.date|date:'dd/MM') || 'Chọn ngày' }}]
+					div.dropdown-menu
+						div(date-picker='model.date', min-view='date', max-view='date')
 
 			.row
 				.col-md-3(ng-repeat='item in seat_list')

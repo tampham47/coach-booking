@@ -10,6 +10,7 @@
 		"underscore.string": "*",
 		"perfect-scrollbar": "*",
 		"angular-bootstrap-datetimepicker": "latest",
+		"angular-datepicker": "1.0.0",
 		"angular-bootstrap": "0.10.0"
 	}
 }

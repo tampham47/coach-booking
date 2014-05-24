@@ -29,8 +29,12 @@ get = (index, limit) ->
 	User.find({}).sort({created_date: -1})
 	.skip(index).limit(limit).exec()
 
+GetByUserName = (username) ->
+	User.findOne({username: username}).exec()
+
 
 module.exports = {
-	create, update, getById, getAll, get,
+	create, update,
+	getById, getAll, get, GetByUserName
 	register
 }

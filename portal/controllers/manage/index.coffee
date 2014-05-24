@@ -12,6 +12,8 @@ angular.module('booking-mamangement.manage', [])
 	moment.lang "vn", weekdays: ['CN', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7']
 	$scope.seat_list = []
 	$scope.selected_date = moment()
+	$scope.model =
+		date: moment().toDate()
 
 	get_sevendays = ->
 		r = []; i = 0;
@@ -51,6 +53,8 @@ angular.module('booking-mamangement.manage', [])
 			$scope.seat_list = load_seatList $scope.current_car, re.data
 
 	fill = ->
+		return if !($scope.current_car?)
+
 		_car = $scope.current_car._id
 		str_date = $scope.selected_date.format 'DD/MM/YYYY'
 		load_booking _car, str_date
@@ -69,6 +73,11 @@ angular.module('booking-mamangement.manage', [])
 	$scope.$watch '_route', ->
 		if $scope._route?
 			load_route $scope._route
+
+	$scope.$watch 'model.date', ->
+		d = moment $scope.model.date
+		$scope.selected_date = d
+		fill()
 
 	$scope.car_changed = (item) ->
 		$scope.current_car = item
