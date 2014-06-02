@@ -13,6 +13,11 @@ angular.module('booking-mamangement')
 			isArray: true
 			params: cmd: 'getall'
 
+		get_by_id:
+			method: 'GET'
+			isArray: false
+			params: cmd: 'get_by_id'
+
 		get_by_route:
 			method: 'GET'
 			isArray: true

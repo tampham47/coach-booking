@@ -9,7 +9,9 @@ angular.module('booking-mamangement.route')
 
 .controller 'route-list-ctrl', ($scope, $location, $rootScope, route) ->
 	console.log 'route-list-ctrl'
-	$scope.routes = route.get_all()
+	route.get_by_company().$promise.then (_re) ->
+		$scope.routes = _re.data
+
 
 	$scope.nav = (template) ->
 		$rootScope.setting_template = template

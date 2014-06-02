@@ -17,7 +17,7 @@ html(ng-app='booking-mamangement')
 
 	body(style='padding:60px 30px;')
 
-		include views/account/login
+		include views/home/login
 
 		div.row.clearfix(ng-controller='nav-ctrl')
 			div.col-md-12.column
@@ -29,7 +29,7 @@ html(ng-app='booking-mamangement')
 							span.icon-bar
 							span.icon-bar
 						a.navbar-brand(href='/#/', style='color:#a0f900')
-							b Juddy Express
+							| Juddy Express
 
 					div#bs-example-navbar-collapse-1.collapse.navbar-collapse
 						ul.nav.navbar-nav
@@ -37,13 +37,17 @@ html(ng-app='booking-mamangement')
 								a(ng-href='#/booking')
 									b Đặt vé
 							li
-								a(ng-href='#/car') Quản lý Xe
+								a(ng-if='user.role == "admin"',
+									ng-href='#/car') Quản lý Xe
 							li
-								a(ng-href='#/employee') Nhân viên
+								a(ng-if='user.role == "admin"',
+									ng-href='#/emp') Nhân viên
 							li
-								a(ng-href='#/guest') Khách hàng
+								a(ng-if='user.role == "admin"',
+									ng-href='#/guest') Khách hàng
 							li
-								a(ng-href='#/setting') Cài đặt
+								a(ng-if='user.role == "admin"',
+									ng-href='#/setting') Cài đặt
 
 
 						ul.nav.navbar-nav.navbar-right(style='padding-right:40px')

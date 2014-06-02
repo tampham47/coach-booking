@@ -7,9 +7,14 @@ angular.module('booking-mamangement.home')
 # 		controller: 'home-ctrl'
 # 		templateUrl: 'views/home/index.jade'
 
-.controller 'nav-ctrl', ($scope, $location, auth) ->
+.controller 'nav-ctrl', ($scope, auth) ->
 	console.log 'home-ctrl'
 
-	$scope.user = auth.getUser()
+	load_data = ->
+		$scope.user = auth.getUser()
+
+	load_data()
 	$scope.logout = auth.logout
 
+	$scope.$on 'event:auth-loginConfirmed', ->
+		load_data()

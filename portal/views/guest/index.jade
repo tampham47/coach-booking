@@ -14,11 +14,12 @@
 			h3(style='margin:0px') Danh sách hành khách
 
 		table.table.table-hover
-			tr(ng-repeat='item in [1,2,3,4,5,6]')
+			tr(ng-repeat='item in data')
 				td
-					b PHẠM MINH TÂM {{item}}
+					b {{item.full_name}}
 					br
-					| 01643-652-922
+					| {{item.phone_number}}
+
 				td(style='width:120px; vertical-align:middle')
 					a(href='#') Ghi chú
 				td(style='width:120px; vertical-align:middle')

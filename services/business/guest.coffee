@@ -17,7 +17,7 @@ update = (id, data) ->
 getById = (id) ->
 	guest.getById(id).exec()
 
-getAll = ->
+GetAll = ->
 	guest.find({}).exec()
 
 get = (index, limit) ->
@@ -26,5 +26,6 @@ get = (index, limit) ->
 
 
 module.exports = {
-	create, update, getById, getAll, get
+	create, update,
+	getById, GetAll, get
 }

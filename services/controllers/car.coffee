@@ -29,8 +29,15 @@ GetByRoute = (req, res) ->
 	car.GetByRoute(_route).then (data) ->
 		res.send data
 
+GetById = (req, res) ->
+	_car = req.query._car
+	car.GetById(_car).then (data) ->
+		res.send {data: data}
+	, (err) ->
+		res.send {err: err}
 
 module.exports = (app) ->
 	app.post '/car/create', create
 	app.get '/car/getAll', getAll
 	app.get '/car/getbyroute', GetByRoute
+	app.get '/car/get_by_id', GetById

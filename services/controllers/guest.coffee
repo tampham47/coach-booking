@@ -10,11 +10,13 @@ create = (req, res) ->
 	, (err) ->
 		res.send {err: err}
 
-getAll = (req, res) ->
-	guest.getAll().then (data) ->
-		res.send data
+GetAll = (req, res) ->
+	guest.GetAll().then (_data) ->
+		res.send {data: _data}
+	, (err) ->
+		res.send {err: err}
 
 
 module.exports = (app) ->
 	app.post '/guest/create', create
-	app.get '/guest/getAll', getAll
+	app.get '/guest/get_all', GetAll

@@ -13,7 +13,7 @@ CompanySchema = new Schema
 	address:
 		type: String
 
-	phone:
+	phone_number:
 		type: String
 
 	notes:

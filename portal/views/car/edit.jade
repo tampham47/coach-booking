@@ -1,4 +1,4 @@
-.row(ng-controller='car-new-ctrl')
+.row
 	.col-md-3
 		.page-header(style='margin-top:0px; margin-bottom:12px')
 			h3(style='margin:0px') Hướng dẫn
@@ -6,16 +6,10 @@
 		//- div.list-group
 			a.list-group-item(ng-href='#/car',
 				ng-repeat='item in cars') {{ item.name }}
-			//- a.list-group-item(ng-href='#/car') Xe giường nằm tài 1
-			//- a.list-group-item(ng-href='#/car') Xe giường nằm tài 2
-			//- a.list-group-item(ng-href='#/car') Xe giường nằm tài 3
-			//- a.list-group-item(ng-href='#/car') Xe giường nằm tài 4
-			//- a.list-group-item(ng-href='#/car') Xe giường nằm tài 5
-			//- a.list-group-item(ng-href='#/car') Xe giường nằm tài 6
 
 	.col-md-9
 		.page-header(style='margin-top:0px; margin-bottom:12px')
-			h2(style='margin:0px') Thêm xe
+			h2(style='margin:0px') Chỉnh sửa thông tin xe
 
 		.form-horizontal
 			// Text input
@@ -33,13 +27,11 @@
 				label.col-md-2.control-label(for='start-time') Giờ khởi hành
 				.col-md-8
 					input#start-time.form-control.input-md(ng-model='model.start_time', name='start-time', type='text', placeholder='giờ:phút')
-					//- span.help-block 17 giờ 30 phút
 			// Text input
 			.form-group
 				label.col-md-2.control-label(for='price') Giá vé (VNĐ)
 				.col-md-8
 					input#price.form-control.input-md(ng-model='model.price', name='price', type='text')
-					//- span.help-block 17 giờ 30 phút
 			// Textarea
 			.form-group
 				label.col-md-2.control-label(for='seats') Danh sách ghế
@@ -55,15 +47,14 @@
 						span.label.label-info(ng-repeat='item in seats track by $index',
 							style='margin-right:4px; display:inline-block; width:50px') {{ item }}
 
-
 			// Textarea
 			.form-group
 				label.col-md-2.control-label(for='notes') Ghi chú
 				.col-md-8
-					textarea#notes.form-control(ng-model='model.notes', name='notes')
+					textarea#notes.form-control(ng-model='model.notes', name='notes', style='height:100px')
 			// Button (Double)
 			.form-group
 				label.col-md-2.control-label(for='next')
 				.col-md-8
-					button#next.btn.btn-success(name='next', ng-click='submit()') Thêm xe
+					button#next.btn.btn-success(name='next', ng-click='submit()') Cập nhật
 					a#cancel.btn.btn-default(href='#/car', style='margin-left:4px') Hủy

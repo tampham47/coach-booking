@@ -1,14 +1,14 @@
 'use strict'
 
-angular.module('booking-mamangement.account')
+angular.module('booking-mamangement.home')
 # config route foreach controller
 # .config ($routeProvider) ->
 # 	$routeProvider.when '/account',
 # 		controller: 'account-ctrl'
 # 		templateUrl: 'views/account/index.jade'
 
-.controller 'account-login-ctrl', ($scope, $location, auth, company, user) ->
-	console.log 'account-login-ctrl'
+.controller 'home-login-ctrl', ($scope, $location, auth, company, user) ->
+	console.log 'home-login-ctrl'
 	$scope.panel = 'login'
 
 	# Show login modal

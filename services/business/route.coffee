@@ -23,7 +23,11 @@ get = (index, limit) ->
 	route.find({}).sort({created_date: -1})
 	.skip(index).limit(limit).exec()
 
+GetByCompany = (_company) ->
+	route.find({_company: _company}).exec()
+
 
 module.exports = {
-	create, update, getById, get_all, get
+	create, update,
+	getById, get_all, get, GetByCompany
 }

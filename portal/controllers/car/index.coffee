@@ -24,8 +24,8 @@ angular.module('booking-mamangement.car', [])
 
 	# init function
 	# get all cars of first route
-	route.get_all().$promise.then (data) ->
-		$scope.routes = data
+	route.get_by_company().$promise.then (_re) ->
+		$scope.routes = data = _re.data
 		if data.length > 0
 			item = data[0]
 			$scope._route = item._id

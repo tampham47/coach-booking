@@ -1,20 +1,20 @@
 .row
 	.col-md-3
 		.page-header(style='margin-top:0px; margin-bottom:12px')
-			a.btn.btn-success.btn-sm.pull-right(href='#/employee/new')
+			//- a.btn.btn-success.btn-sm.pull-right(href='#/employee/new')
 				i.glyphicon.glyphicon-plus
 				| Thêm
 			h3(style='margin:0px') DS Nhân viên
 
 		div.list-group#emp-panel(style='position:relative; margin:0px auto; padding:0px; min-height:200px; overflow: hidden;')
 			a.list-group-item(ng-repeat='item in users',
-				ng-href='#/employee',
+				ng-href='#/emp',
 				ng-click='set_model(item)')
 				| {{item.full_name || item.username}}
 
 	.col-md-9
 		.page-header(style='margin-top:0px; margin-bottom:12px')
-			a.btn.btn-success.btn-sm.pull-right(href='#/employee/new')
+			a.btn.btn-success.btn-sm.pull-right(href='#/emp/new')
 				i.glyphicon.glyphicon-plus
 				| Thêm
 			h3(style='margin:0px') Thông tin nhân viên
@@ -60,3 +60,8 @@
 				.col-md-8
 					label#password.form-control.input-md(name='password', type='text', placeholder='', required='')
 
+			// Text input
+			.form-group
+				label.col-md-2.control-label(for='password')
+				.col-md-8
+					a.btn.btn-default(href='#/emp/edit/{{model._id}}') Chỉnh sửa thông tin

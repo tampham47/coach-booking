@@ -26,9 +26,9 @@ angular.module('booking-mamangement.booking')
 	$scope.datepicker = get_default(_booking.str_date)
 
 	# get routes
-	route.get_all().$promise.then (data) ->
-		$scope.routes = data
-		_booking._route = data[0]._id if data.length > 0
+	route.get_by_company().$promise.then (_re) ->
+		$scope.routes = _re.data
+		_booking._route = _re.data[0]._id if _re.data.length > 0
 
 
 	$scope.$watch 'datepicker', ->

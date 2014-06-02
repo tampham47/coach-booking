@@ -10,13 +10,17 @@ create = (data) ->
 	# create function always return a promise
 	Booking.create(data)
 
-update = (id, data) ->
-	Booking.findByIdAndUpdate(id, data).exec()
+Update = (id, data) ->
+	delete data._id
+	Booking.findByIdAndUpdate(id, data).exec().then ->
+		return GetById(id)
+	, (err) ->
+		return err
 
-getById = (id) ->
-	Booking.getById(id).exec()
+GetById = (id) ->
+	Booking.findById(id).populate('_guest').exec()
 
-getAll = ->
+GetAll = ->
 	Booking.find({}).exec()
 
 get = (index, limit) ->
@@ -25,6 +29,6 @@ get = (index, limit) ->
 
 
 module.exports = {
-	create, update,
-	getById, getAll, get, GetByCar
+	create, Update,
+	GetById, GetAll, get, GetByCar
 }

@@ -10,6 +10,7 @@ angular.module('booking-mamangement.manage', [])
 .controller 'manage-ctrl', ($scope, $location, route, car, booking) ->
 	console.log 'manage-ctrl'
 	moment.lang "vn", weekdays: ['CN', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7']
+	$scope.booking = {}
 	$scope.seat_list = []
 	$scope.selected_date = moment()
 	$scope.model =
@@ -63,8 +64,8 @@ angular.module('booking-mamangement.manage', [])
 	# get all cars of first route
 	$scope.sevendays = get_sevendays()
 
-	route.get_all().$promise.then (data) ->
-		$scope.routes = data
+	route.get_by_company().$promise.then (_re) ->
+		$scope.routes = data = _re.data
 		if data.length > 0
 			item = data[0]
 			$scope._route = item._id
@@ -86,3 +87,59 @@ angular.module('booking-mamangement.manage', [])
 	$scope.date_changed = (item) ->
 		$scope.selected_date = item
 		fill()
+
+	$scope.booking_panel_click = (item) ->
+		$scope.selected_seat = item
+		$('#booking_panel').modal
+			backdrop: 'static'
+			keyboard: true
+
+	$scope.booking_panel_close = ->
+		$scope.err = null
+
+	$scope.booking_detail_click = (item) ->
+		$scope.booking_detail = item.value
+		$('#booking_detail').modal
+			backdrop: 'static'
+			keyboard: true
+
+	$scope.booking_detail_close = ->
+		$scope.booking_detail = {}
+
+	$scope.booking_create = ->
+		if $scope.booking_form.$invalid
+			$scope.err =
+				message: 'Bạn chưa điền đầy đủ thông tin.'
+			return
+
+		_guest = $scope.guest
+		_b = $scope.booking
+
+		_b._car = $scope.current_car._id
+		_b.seat = $scope.selected_seat.name
+		_b.str_date = $scope.selected_date.format 'DD/MM/YYYY'
+
+		booking.create_one({booking: _b, guest: _guest})
+		.$promise.then (result) ->
+			fill()
+			$scope.guest = {}
+			$scope.booking.from = ''
+			$scope.booking.destination = ''
+			$('#booking_panel').modal 'hide'
+
+	$scope.booking_change_status = (_status) ->
+		_b = JSON.parse(JSON.stringify($scope.booking_detail))
+		# _b = $scope.booking_detail
+		# console.log _b
+		_b.status = _status
+		_b._guest = _b._guest._id
+
+		booking.update(_b).$promise.then (_re) ->
+			if _re.err?
+				$scope.err = _re.err
+				return
+			else
+				# $scope.booking_detail = _re.data
+				# console.log _re.data
+				fill()
+				$('#booking_detail').modal 'hide'

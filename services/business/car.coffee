@@ -22,8 +22,11 @@ get = (index, limit) ->
 GetByRoute = (_route) ->
 	Car.find({ _route: _route}).populate('_route').exec()
 
+GetById = (_car) ->
+	Car.findById(_car).exec()
+
 
 module.exports = {
 	create, update, getById, getAll, get
-	GetByRoute
+	GetByRoute, GetById
 }

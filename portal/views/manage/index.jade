@@ -1,3 +1,9 @@
+style
+	.booking-modal label {margin-bottom:0px}
+	.booking-modal .form-group {margin-bottom:4px}
+	.booking.confirmed {color: #bbc600}
+	.booking.paid {color: #b75a00}
+
 .row
 	.col-md-3
 		p(style='margin-bottom:2px') CHỌN TUYẾN
@@ -12,6 +18,113 @@
 				ng-repeat='item in data') {{ item.name }}
 
 	.col-md-9
+		.modal.fade.booking-modal#booking_panel
+			.modal-dialog
+				.modal-content
+					.modal-header
+						button.close(ng-click='booking_panel_close()',
+							type='button', data-dismiss='modal', aria-hidden='true') ×
+						h4.modal-title
+							| Thông tin người đặt
+
+					.modal-body
+						form.form-horizontal(name='booking_form')
+							// Text input
+							.form-group
+								label.col-md-3.control-label(for='selected_date') Ngày đặt
+								.col-md-8
+									label#selected_date.form-control {{selected_date.format("DD/MM/YYYY")}}
+							// Text input
+							.form-group
+								label.col-md-3.control-label(for='current_car') Xe
+								.col-md-8
+									label#current_car.form-control {{current_car.name}}
+							// Text input
+							.form-group
+								label.col-md-3.control-label(for='selected_seat') Ghế
+								.col-md-8
+									label#selected_seat.form-control {{selected_seat.name}}
+
+							// Text input
+							.form-group
+								label.col-md-3.control-label(for='fullname') Họ Tên
+								.col-md-8
+									input#fullname.form-control.input-md(ng-model='guest.full_name', name='fullname', type='text', placeholder='', required='')
+							// Text input
+							.form-group
+								label.col-md-3.control-label(for='phone') Số điện thoại
+								.col-md-8
+									input#phone.form-control.input-md(ng-model='guest.phone_number', name='phone', type='text', placeholder='', required='')
+							// Textarea
+							.form-group
+								label.col-md-3.control-label(for='note-from') Điểm đón
+								.col-md-8
+									textarea#note-from.form-control(ng-model='booking.from', name='note-from')
+							// Textarea
+							.form-group
+								label.col-md-3.control-label(for='note-to') Điểm đến
+								.col-md-8
+									textarea#note-to.form-control(ng-model='booking.destination', name='note-to')
+							// Textarea
+							.form-group.has-warning(ng-if='err')
+								label.col-md-3.control-label
+								.col-md-8.control-label(style='text-align:left')
+									b {{err.message}}
+
+					.modal-footer
+						.btn.btn-success(ng-click='booking_create()') Đặt vé
+
+		.modal.fade.booking-modal#booking_detail
+			.modal-dialog
+				.modal-content
+					.modal-header
+						button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+						h4.modal-title
+							| Thông tin người đặt
+
+					.modal-body
+						form.form-horizontal(name='booking_detail_form')
+							// Text input
+							.form-group
+								label.col-md-3.control-label Ngày đặt
+								.col-md-8
+									label.form-control {{selected_date.format("DD/MM/YYYY")}}
+							// Text input
+							.form-group
+								label.col-md-3.control-label Xe
+								.col-md-8
+									label.form-control {{current_car.name}}
+							// Text input
+							.form-group
+								label.col-md-3.control-label Ghế
+								.col-md-8
+									label.form-control {{booking_detail.seat}}
+
+							// Text input
+							.form-group
+								label.col-md-3.control-label Họ Tên
+								.col-md-8
+									label.form-control {{booking_detail._guest.full_name}}
+							// Text input
+							.form-group
+								label.col-md-3.control-label Số điện thoại
+								.col-md-8
+									label.form-control {{booking_detail._guest.phone_number}}
+							// Textarea
+							.form-group
+								label.col-md-3.control-label Điểm đón
+								.col-md-8
+									label.form-control(style='white-space: nowrap; overflow:hidden') {{booking_detail.from}}
+							// Textarea
+							.form-group
+								label.col-md-3.control-label Điểm đến
+								.col-md-8
+									label.form-control {{booking_detail.destination}}
+					.modal-footer
+						.btn.btn-danger.pull-left Hủy Vé
+						.btn.btn-default(ng-click='booking_change_status("confirmed")') Đã Xác nhận
+						.btn.btn-default(ng-click='booking_change_status("paid")') Đã Thanh toán
+
 		div.alert.alert-warning(ng-if='current_car == -1')
 			| Không có xe nào được chọn
 
@@ -21,11 +134,11 @@
 					button.btn.btn-default.btn-sm.active(type='button') Tất cả
 					button.btn.btn-default.btn-sm(type='button') Đã đặt
 					button.btn.btn-default.btn-sm(type='button') Còn trống
-				div.btn-group.pull-right(style='margin-right:4px')
+				//- div.btn-group.pull-right(style='margin-right:4px')
 					button.btn.btn-default.btn-sm.active(type='button') Lưới
 					button.btn.btn-default.btn-sm(type='button') Danh sách
-				h3(style='margin:0px') {{ current_car.name }} - [{{ selected_date.format('DD/MM') }}]
 
+				h3(style='margin:0px') {{ current_car.name }} - [{{ selected_date.format('DD/MM') }}]
 
 			ul.nav.nav-pills(style='margin-bottom:10px')
 				li(ng-repeat='date in sevendays track by $index')
@@ -44,13 +157,17 @@
 						style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
 						b {{ item.name }}
 						br
-						a(href='#') Đặt Vé
+						a(ng-click='booking_panel_click(item)',
+							style='cursor:pointer') Đặt Vé
 					div.thumbnail(ng-if='item.value != null',
+						ng-click='booking_detail_click(item)',
 						style='margin-bottom:10px; text-align:center; background-color:#f9fafa')
 						| [{{ item.name }}] &nbsp;
-						b {{ item.value._guest.full_name }}
+						b.booking(class='{{item.value.status}}', style='cursor:pointer;')
+							| {{ item.value._guest.full_name }}
 						br
-						span {{ item.value._guest.phone_number }}
+						span(style='cursor:pointer')
+							| {{ item.value._guest.phone_number }}
 
 			.row(style='margin-top:50px')
 				.col-md-12

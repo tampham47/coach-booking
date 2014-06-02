@@ -6,7 +6,13 @@ angular.module('booking-mamangement')
 		create:
 			method: 'POST'
 			isArray: false
-			params: cmd: 'create2'
+			params: cmd: 'create'
+
+		create_one:
+			method: 'POST'
+			isArray: false
+			params: cmd: 'create_one'
+
 		getall:
 			method: 'GET'
 			isArray: true
@@ -16,3 +22,9 @@ angular.module('booking-mamangement')
 			method: 'GET'
 			isArray: false
 			params: cmd: 'get_by_car'
+
+		update:
+			method: 'POST'
+			isArray: false
+			params: cmd: 'update'
+

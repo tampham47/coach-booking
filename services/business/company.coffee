@@ -1,10 +1,12 @@
 'use strict'
 
 Company = require '../models/company'
+phone = require 'phone'
 
 create = (data) ->
 	console.log 'company'
 	console.log data
+	data.phone_number = phone(data.phone_number, 'VN')[0]
 	# create function always return a promise
 	Company.create(data).then (data) ->
 		return data

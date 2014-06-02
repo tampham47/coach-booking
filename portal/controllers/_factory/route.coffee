@@ -12,3 +12,8 @@ angular.module('booking-mamangement')
 			method: 'GET'
 			isArray: true
 			params: cmd: 'get_all'
+
+		get_by_company:
+			method: 'GET'
+			isArray: false
+			params: cmd: 'get_by_company'

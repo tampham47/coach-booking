@@ -3,7 +3,7 @@
 angular.module('booking-mamangement.employee')
 # config route foreach controller
 .config ($routeProvider) ->
-	$routeProvider.when '/employee/new',
+	$routeProvider.when '/emp/new',
 		controller: 'employee-new-ctrl'
 		templateUrl: 'views/employee/new.jade'
 

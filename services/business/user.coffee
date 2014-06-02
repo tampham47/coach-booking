@@ -2,13 +2,16 @@
 
 User = require '../models/user'
 mongoose = require 'mongoose'
+phone = require 'phone'
 
 create = (data) ->
 	# create function always return a promise
+	data.phone_number = phone(data.phone_number, 'VN')[0]
 	User.create(data)
 
 register = (data, pass) ->
 	promise = new mongoose.Promise
+	data.phone_number = phone(data.phone_number, 'VN')[0]
 	User.register data, pass, (err, user) ->
 		if err
 			promise.error err
@@ -18,9 +21,6 @@ register = (data, pass) ->
 
 update = (id, data) ->
 	User.findByIdAndUpdate(id, data).exec()
-
-getById = (id) ->
-	User.getById(id).exec()
 
 getAll = ->
 	User.find({}).exec()
@@ -32,9 +32,14 @@ get = (index, limit) ->
 GetByUserName = (username) ->
 	User.findOne({username: username}).exec()
 
+GetByCompany = (_company) ->
+	User.find({_company: _company}).exec()
+
+GetById = (_user) ->
+	User.findById(_user).exec()
 
 module.exports = {
 	create, update,
-	getById, getAll, get, GetByUserName
+	getAll, get, GetByUserName, GetByCompany, GetById
 	register
 }

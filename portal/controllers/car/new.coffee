@@ -9,7 +9,9 @@ angular.module('booking-mamangement.car')
 
 .controller 'car-new-ctrl', ($scope, $location, route, car) ->
 	console.log 'car-new-ctrl'
-	$scope.routes = route.get_all()
+	route.get_by_company().$promise.then (_re) ->
+		$scope.routes = _re.data
+
 	$scope.cars = car.get_all()
 	$scope.seats = []
 	$scope.model = {}
@@ -33,3 +35,4 @@ angular.module('booking-mamangement.car')
 				console.log data
 				$scope.model = {}
 				$scope.seats = []
+				$location.path '/car'
