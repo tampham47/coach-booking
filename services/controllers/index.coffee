@@ -32,3 +32,4 @@ module.exports = (app) ->
 	require('./province')(app)
 	require('./route')(app)
 	require('./account')(app)
+	require('./excel')(app)

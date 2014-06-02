@@ -28,3 +28,8 @@ angular.module('booking-mamangement')
 			isArray: false
 			params: cmd: 'update'
 
+		export:
+			method: 'get'
+			isArray: false
+			params: cmd: 'export'
+

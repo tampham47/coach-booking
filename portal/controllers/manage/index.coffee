@@ -7,7 +7,7 @@ angular.module('booking-mamangement.manage', [])
 		controller: 'manage-ctrl'
 		templateUrl: 'views/manage/index.jade'
 
-.controller 'manage-ctrl', ($scope, $location, route, car, booking) ->
+.controller 'manage-ctrl', ($scope, $location, config, route, car, booking) ->
 	console.log 'manage-ctrl'
 	moment.lang "vn", weekdays: ['CN', 'Thứ 2', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7']
 	$scope.booking = {}
@@ -51,6 +51,7 @@ angular.module('booking-mamangement.manage', [])
 	load_booking = (_car, str_date) ->
 		booking.get_by_car({_car: _car, str_date: str_date})
 		.$promise.then (re) ->
+			$scope.booking_count = re.data.length
 			$scope.seat_list = load_seatList $scope.current_car, re.data
 
 	fill = ->
@@ -139,7 +140,13 @@ angular.module('booking-mamangement.manage', [])
 				$scope.err = _re.err
 				return
 			else
-				# $scope.booking_detail = _re.data
-				# console.log _re.data
 				fill()
 				$('#booking_detail').modal 'hide'
+
+	$scope.booking_export = ->
+		console.log 'booking_export'
+		_car = $scope.current_car._id
+		str_date = $scope.selected_date.format 'DD/MM/YYYY'
+
+		url = config.services + '/booking/export?_car=' + _car + '&str_date=' + str_date
+		window.open url, '_blank'

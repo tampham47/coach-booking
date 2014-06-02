@@ -172,12 +172,12 @@ style
 			.row(style='margin-top:50px')
 				.col-md-12
 					p
-						.btn.btn-success.pull-right
+						.btn.btn-success.pull-right(ng-click='booking_export()')
 							| Trích xuất
 							i.glyphicon.glyphicon-chevron-right
 
 						| Thống kê đặt vé ngày {{ selected_date.format("DD/MM/YYYY") }}.
 						br
-						| Số ghế đẵ đặt: 28 ghế
+						| Số ghế đẵ đặt: {{booking_count}} ghế
 						br
-						| Số ghế trống: 4 ghế
+						| Tổng số ghế: {{current_car.seats.length}} ghế

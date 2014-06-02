@@ -4,7 +4,8 @@ Booking = require '../models/booking'
 
 GetByCar = (_car, str_date) ->
 	Booking.find({_car: _car, str_date: str_date})
-	.populate('_guest').exec()
+	.populate('_guest')
+	.sort({seat: 1}).exec()
 
 create = (data) ->
 	# create function always return a promise
