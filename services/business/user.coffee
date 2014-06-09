@@ -19,15 +19,8 @@ register = (data, pass) ->
 		promise.complete user
 	promise
 
-update = (id, data) ->
-	User.findByIdAndUpdate(id, data).exec()
-
-getAll = ->
+GetAll = ->
 	User.find({}).exec()
-
-get = (index, limit) ->
-	User.find({}).sort({created_date: -1})
-	.skip(index).limit(limit).exec()
 
 GetByUserName = (username) ->
 	User.findOne({username: username}).exec()
@@ -38,8 +31,12 @@ GetByCompany = (_company) ->
 GetById = (_user) ->
 	User.findById(_user).exec()
 
+Update = (_id, data) ->
+	delete data._id
+	User.findByIdAndUpdate(_id, data).exec()
+
 module.exports = {
-	create, update,
-	getAll, get, GetByUserName, GetByCompany, GetById
+	create, Update,
+	GetAll, GetByUserName, GetByCompany, GetById,
 	register
 }

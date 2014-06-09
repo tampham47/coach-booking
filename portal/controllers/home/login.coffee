@@ -9,6 +9,7 @@ angular.module('booking-mamangement.home')
 
 .controller 'home-login-ctrl', ($scope, $location, auth, company, user) ->
 	console.log 'home-login-ctrl'
+	$scope.credential = {}
 	$scope.panel = 'login'
 
 	# Show login modal
@@ -49,9 +50,13 @@ angular.module('booking-mamangement.home')
 		_c = $scope.model
 		_u = $scope.user
 		_u.phone_number = _c.phone_number
-		company.create {company: _c, user: _u}, (data) ->
+
+		# company.create {company: _c, user: _u}, (data) ->
+		# create a company with demo data
+		company.create_with_data {company: _c, user: _u}, (data) ->
 			if data.err?
 				$scope.err = data.err
 			else
+				$scope.credential = data
 				$scope.model = $scope.user = $scope.err = null
 				$scope.panel = 'login'

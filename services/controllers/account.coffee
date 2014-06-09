@@ -19,6 +19,8 @@ login = (req, res, next) ->
 	fn = passport.authenticate 'local', (err, user, info) ->
 		throw err if err
 		if user
+			# console.log 'login'
+			# console.log user
 			req.login user, (err) ->
 				throw err if err
 				res.send 204 # No Content

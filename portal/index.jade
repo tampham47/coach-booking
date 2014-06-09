@@ -44,6 +44,9 @@ html(ng-app='booking-mamangement')
 									ng-href='#/emp') Nhân viên
 							li
 								a(ng-if='user.role == "admin"',
+									ng-href='#/route') Tuyến
+							//- li
+								a(ng-if='user.role == "admin"',
 									ng-href='#/guest') Khách hàng
 							li
 								a(ng-if='user.role == "admin"',
@@ -56,13 +59,13 @@ html(ng-app='booking-mamangement')
 									| {{user.full_name || user.username}}
 									b.caret
 								ul.dropdown-menu
-									li
-										a(href='#') Thông tin tài khoản
-									li
-										a(href='#') Quản lý bài viết
-									li
-										a(href='#') Quản lý profile
-									li.divider
+									//- li
+									//- 	a(href='#') Thông tin tài khoản
+									//- li
+									//- 	a(href='#') Quản lý bài viết
+									//- li
+									//- 	a(href='#') Quản lý profile
+									//- li.divider
 									li
 										a(href='#', ng-click='logout()') Đăng xuất
 

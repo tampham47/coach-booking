@@ -11,7 +11,9 @@ angular.module('booking-mamangement.home')
 	console.log 'home-ctrl'
 
 	load_data = ->
-		$scope.user = auth.getUser()
+		auth.getUser().then (data) ->
+			$scope.user = auth.user = data
+			console.log auth
 
 	load_data()
 	$scope.logout = auth.logout

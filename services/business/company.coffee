@@ -3,7 +3,7 @@
 Company = require '../models/company'
 phone = require 'phone'
 
-create = (data) ->
+Create = (data) ->
 	console.log 'company'
 	console.log data
 	data.phone_number = phone(data.phone_number, 'VN')[0]
@@ -13,20 +13,18 @@ create = (data) ->
 	, (err) ->
 		return {err: err}
 
-update = (id, data) ->
+Update = (id, data) ->
+	delete data._id
 	Company.findByIdAndUpdate(id, data).exec()
 
-getById = (id) ->
-	Company.getById(id).exec()
-
-getAll = ->
+GetAll = ->
 	Company.find({}).exec()
 
-get = (index, limit) ->
-	Company.find({}).sort({created_date: -1})
-	.skip(index).limit(limit).exec()
+GetById = (_company) ->
+	Company.findById(_company).exec()
 
 
 module.exports = {
-	create, update, getById, getAll, get
+	Create, Update,
+	GetAll, GetById
 }

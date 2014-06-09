@@ -9,7 +9,7 @@ div(ng-controller='choosecars-ctrl')
 				br
 				| Khởi hành lúc {{item.start_time}} hằng ngày.
 			td(style='width:120px; vertical-align:middle')
-				b Còn 1 ghế
+				b Còn {{item.available_seat}} ghế
 			td(style='width:120px')
 				.btn.btn-success.pull-right(ng-click='car_selected(item)') Chọn Xe
 					i.glyphicon.glyphicon-chevron-right

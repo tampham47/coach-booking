@@ -22,3 +22,10 @@ angular.module('booking-mamangement.car')
 
 	$scope.submit = ->
 		console.log 'submit'
+		_d = $scope.model
+		car.update(_d).$promise.then (_re) ->
+			if _re.err?
+				$scope.err = _re.err
+			else
+				console.log 'done'
+				console.log _re.data

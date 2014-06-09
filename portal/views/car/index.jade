@@ -31,6 +31,13 @@
 					label.form-control.input-md {{ model._route.from + ' - ' + model._route.destination }}
 			// Text input
 			.form-group
+				label.col-md-2.control-label Giá
+				.col-md-8
+					.input-group
+						label.form-control.input-md {{ model.price }}
+						span.input-group-addon VNĐ
+			// Text input
+			.form-group
 				label.col-md-2.control-label Giờ khởi hành
 				.col-md-8
 					label.form-control.input-md {{ model.start_time }}

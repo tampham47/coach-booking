@@ -22,6 +22,9 @@ CompanySchema = new Schema
 	expiration_date:
 		type: Date
 
+	is_demo:
+		type: Boolean
+
 	created_date:
 		type: Date
 		default: Date.now

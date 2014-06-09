@@ -13,7 +13,7 @@ allowCors = (request, response, next) ->
 		next()
 
 checking_authentication = (req, res, next) ->
-	if (req.url is '/account/login') or (req.url is '/company/create') or req.isAuthenticated()
+	if (req.url is '/account/login') or (req.url is '/company/create') or (req.url is '/company/create_with_data') or req.isAuthenticated()
 		next()
 	else
 		res.send 401 # Unauthorized

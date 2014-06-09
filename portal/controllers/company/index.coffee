@@ -7,7 +7,10 @@ angular.module('booking-mamangement.company', [])
 		controller: 'company-ctrl'
 		templateUrl: 'views/company/index.jade'
 
-.controller 'company-ctrl', ($scope, $location, company) ->
+.controller 'company-ctrl', ($scope, $location, company, auth) ->
 	console.log 'company-ctrl'
-	$scope.companies = company.getall()
+
+	company.get_by_id({_company: auth.user._company})
+	.$promise.then (_re) ->
+		$scope.model = _re.data
 

@@ -11,10 +11,15 @@ angular.module('booking-mamangement')
 			method: 'POST'
 			isArray: false
 			params: cmd: 'register'
+		update:
+			method: 'POST'
+			isArray: false
+			params: cmd: 'update'
+
 		getall:
 			method: 'GET'
 			isArray: true
-			params: cmd: 'getAll'
+			params: cmd: 'get_all'
 
 		get_by_company:
 			method: 'GET'

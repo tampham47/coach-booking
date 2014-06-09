@@ -15,21 +15,20 @@ angular.module('booking-mamangement.employee')
 		if _re.err?
 			$scope.err = _re.err
 		else
+			_re.data.birthday = moment(_re.data.birthday).format 'DD/MM/YYYY'
 			$scope.model = _re.data
-			console.log $scope.model
 
-	# $scope.model = {}
-	# auth.getUser().then (data) ->
-	# 	$scope.currentUser = data
+	$scope.submit = ->
+		console.log 'submit'
+		user.update $scope.model, (_re) ->
+			if _re.err
+				$scope.err = _re.err
+			else
+				console.log _re.data
+				window.location = '#/emp'
 
-	# $scope.submit = ->
-	# 	console.log 'submit'
-	# 	$scope.model.role = 'manager'
-	# 	$scope.model._company = $scope.currentUser._company
-	# 	console.log $scope.model
-	# 	user.register $scope.model, (data) ->
-	# 		if data.err
-	# 			console.log err
-	# 		else
-	# 			console.log data
-	# 			$scope.model = {}
+	# $scope.set_pass = (pass)->
+	# 	u = $scope.model
+	# 	u.setPassword pass, ->
+	# 		u.save()
+

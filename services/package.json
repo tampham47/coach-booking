@@ -12,8 +12,8 @@
 		"phone": "1.0.2",
 		"moment": "*",
 		"excel-export": "0.3.11",
-		"to-utf8": "0.0.2",
 		"utf8": "2.0.0",
+		"guid": "*",
 		"mongoose": "latest"
 	}
 }

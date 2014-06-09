@@ -1,15 +1,36 @@
-.row
-	.col-md-3
-		div.list-group
-			a.list-group-item(ng-href='#/car') Quản lý xe
-			a.list-group-item(ng-href='#/employee') Quản lý nhân viên
+div(ng-controller='company-ctrl')
+	.page-header(style='margin-top:0px; margin-bottom:12px')
+		h3(style='margin:0px') Thông tin công ty
 
-	.col-md-9
-		.page-header(style='margin-top:0px; margin-bottom:12px')
-			a.btn.btn-success.pull-right(href='#/company/new') Thêm công ty
-			h2(style='margin:0px') Danh sách công ty
+	form.form-horizontal
+		// Text input
+		.form-group
+			label.col-md-2.control-label Tên công ty
+			.col-md-8
+				label.form-control {{model.company_name}}
+		// Text input
+		.form-group
+			label.col-md-2.control-label Điện thoại
+			.col-md-8
+				label.form-control {{model.phone}}
+		// Text input
+		.form-group
+			label.col-md-2.control-label Địa chỉ
+			.col-md-8
+				label.form-control {{model.address}}
+		// Text input
+		.form-group
+			label.col-md-2.control-label Thành phố
+			.col-md-8
+				label.form-control {{model.city}}
+		// Textarea
+		.form-group
+			label.col-md-2.control-label Ghi chú
+			.col-md-8
+				p.form-control(style='min-height:43px; height:auto') {{model.notes}}
 
-		div.thumbnail(ng-repeat='item in companies')
-			//- .btn.btn-warning.pull-right Danh sách chỗ ngồi
-			p {{item.company_name}}
-			p Phone: {{item.phone}}
+		// Button (Double)
+		.form-group
+			label.col-md-2.control-label(for='next')
+			.col-md-8
+				a.btn.btn-default(href='#/company/edit/{{model._id}}') Cập nhật thông tin

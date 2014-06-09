@@ -121,7 +121,7 @@ style
 								.col-md-8
 									label.form-control {{booking_detail.destination}}
 					.modal-footer
-						.btn.btn-danger.pull-left Hủy Vé
+						.btn.btn-danger.pull-left(ng-click='booking_change_status("cancel")') Hủy Vé
 						.btn.btn-default(ng-click='booking_change_status("confirmed")') Đã Xác nhận
 						.btn.btn-default(ng-click='booking_change_status("paid")') Đã Thanh toán
 

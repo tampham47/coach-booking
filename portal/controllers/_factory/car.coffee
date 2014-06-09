@@ -8,6 +8,11 @@ angular.module('booking-mamangement')
 			isArray: false
 			params: cmd: 'create'
 
+		update:
+			method: 'POST'
+			isArray: false
+			params: cmd: 'update'
+
 		get_all:
 			method: 'GET'
 			isArray: true

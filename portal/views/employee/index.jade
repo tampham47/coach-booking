@@ -39,12 +39,12 @@
 			.form-group
 				label.col-md-2.control-label Ngày sinh
 				.col-md-8
-					label.form-control.input-md {{ model.birthday }}
+					label.form-control.input-md {{ model.birthday | date:'dd/MM/yyyy' }}
 			// Textarea
 			.form-group
 				label.col-md-2.control-label Ghi chú
 				.col-md-8
-					label.form-control {{ model.notes }}
+					label.form-control(style='min-height:43px; height:auto') {{ model.notes }}
 
 
 			br

@@ -1,4 +1,56 @@
-div(ng-controller='route-ctrl')
+.row
+	.col-md-3
+		.page-header(style='margin-top:0px; margin-bottom:12px')
+			h3(style='margin:0px') DS Tuyến
+
+		div.list-group#emp-panel(style='position:relative; margin:0px auto; padding:0px; min-height:200px; overflow: hidden;')
+			a.list-group-item(ng-repeat='item in routes',
+				ng-href='#/route',
+				ng-click='set_route(item)')
+				| {{item.from + ' - ' + item.destination}}
+
+	.col-md-9
+		.page-header(style='margin-top:0px; margin-bottom:12px')
+			a.btn.btn-success.btn-sm.pull-right(href='#/route/new')
+				i.glyphicon.glyphicon-plus
+				| Thêm Tuyến
+			h3(style='margin:0px') Thông tin tuyến
+
+		.form-horizontal
+			// Text input
+			.form-group
+				label.col-md-2.control-label Tên ngắn gọn
+				.col-md-8
+					label.form-control.input-md {{model.short_name}}
+			// Select Basic
+			.form-group
+				label.col-md-2.control-label Xuất phát
+				.col-md-8
+					label.form-control.input-md {{model.from}}
+			// Select Basic
+			.form-group
+				label.col-md-2.control-label Điểm đến
+				.col-md-8
+					label.form-control.input-md {{model.destination}}
+
+		//- table.table.table-hover(ng-if='routes.length > 0')
+			tr
+				th Tên ngắn
+				th Điểm đi
+				th Điểm đến
+				th
+			tr(ng-repeat='item in routes')
+				td(style='width:120px; vertical-align:middle')
+					span {{item.short_name}}
+				td(style='width:200px; vertical-align:middle')
+					b {{item.from}}
+				td(style='width:200px; vertical-align:middle')
+					b {{item.destination}}
+				td
+					.btn.btn-default.pull-right Danh sách xe
+						//- i.glyphicon.glyphicon-chevron-right
+
+//- div(ng-controller='route-ctrl')
 	.page-header(style='margin-top:0px; margin-bottom:12px')
 		.btn.btn-success.btn-sm.pull-right(ng-click='nav("views/route/new.jade")')
 			| Thêm Tuyến

@@ -49,7 +49,11 @@ angular.module('booking-mamangement.account')
 		_c = $scope.model
 		_u = $scope.user
 		_u.phone_number = _c.phone_number
-		company.create {company: _c, user: _u}, (data) ->
+
+		# company.create {company: _c, user: _u}, (data) ->
+
+		# create a company with demo data
+		company.create_with_demo {company: _c, user: _u}, (data) ->
 			if data.err?
 				$scope.err = data.err
 			else

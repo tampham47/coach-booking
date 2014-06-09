@@ -9,7 +9,7 @@ angular.module('booking-mamangement.setting', [])
 
 .controller 'setting-ctrl', ($scope, $location, $rootScope) ->
 	console.log 'setting-ctrl'
-	$rootScope.setting_template = 'views/setting/company.jade'
+	$rootScope.setting_template = 'views/company/index.jade'
 
 	$scope.nav = (template) ->
 		$rootScope.setting_template = template

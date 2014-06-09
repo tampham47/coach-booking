@@ -3,7 +3,7 @@
 car = require '../business/car'
 _str = require 'underscore.string'
 
-create = (req, res) ->
+Create = (req, res) ->
 	data = req.body
 	tmp = _str.words data.seats, ','
 	seats = []
@@ -20,7 +20,7 @@ create = (req, res) ->
 	, (err) ->
 		res.send { err: err }
 
-getAll = (req, res) ->
+GetAll = (req, res) ->
 	car.getAll().then (data) ->
 		res.send data
 
@@ -36,8 +36,18 @@ GetById = (req, res) ->
 	, (err) ->
 		res.send {err: err}
 
+Update = (req, res) ->
+	d = req.body
+	car.Update(d._id, d).then (data) ->
+		res.send {data: data}
+	, (err) ->
+		res.send {err: err}
+
+
 module.exports = (app) ->
-	app.post '/car/create', create
-	app.get '/car/getAll', getAll
+	app.post '/car/create', Create
+	app.post '/car/update', Update
+
+	app.get '/car/getAll', GetAll
 	app.get '/car/getbyroute', GetByRoute
 	app.get '/car/get_by_id', GetById
