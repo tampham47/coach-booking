@@ -10,7 +10,7 @@ style
 		select.form-control(ng-model='_route',
 			ng-options='item._id as item.from + " - " + item.destination for item in routes')
 
-		p(style='margin-top:14px; margin-bottom:2px') DANH SÁCH XE
+		p(style='margin-top:14px; margin-bottom:2px') DANH SÁCH CHUYẾN XE
 		i(ng-if='data.length == 0') Không có xe nào cho tuyến được chọn.
 		div.list-group#car-panel(style='position:relative; margin:0px auto; padding:0px; min-height:200px; overflow: hidden;')
 			a.list-group-item(ng-href='#/',

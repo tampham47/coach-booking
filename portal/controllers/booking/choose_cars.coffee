@@ -31,6 +31,7 @@ angular.module('booking-mamangement.booking')
 	load_data()
 
 	$scope.car_selected = (item) ->
+		$rootScope.current_state = 2 if $rootScope.current_state < 2
 		$rootScope.booking._car = item._id
 		$rootScope.booking.car = item
 		$rootScope.booking_template = 'views/booking/choose_seat.jade'

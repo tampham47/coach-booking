@@ -3,13 +3,13 @@
 		.page-header(style='margin-top:0px; margin-bottom:12px')
 			h3(style='margin:0px') Các bước đặt vé
 		div.list-group
-			a.list-group-item(ng-href='#/booking', ng-click='nav("choose_date.jade")') Chọn ngày
-			a.list-group-item(ng-href='#/booking', ng-click='nav("choose_cars.jade")') Chọn xe
-			a.list-group-item(ng-href='#/booking', ng-click='nav("choose_seat.jade")')
+			a.list-group-item(ng-href='#/booking', ng-click='nav("choose_date.jade", 1)') Chọn ngày
+			a.list-group-item(ng-href='#/booking', ng-click='nav("choose_cars.jade", 2)') Chọn xe
+			a.list-group-item(ng-href='#/booking', ng-click='nav("choose_seat.jade", 3)')
 				| Chọn ghế
-			a.list-group-item(ng-href='#/booking', ng-click='nav("choose_info.jade")')
+			a.list-group-item(ng-href='#/booking', ng-click='nav("choose_info.jade", 4)')
 				| Thông tin hành khách
-			a.list-group-item(ng-href='#/booking', ng-click='nav("choose_done.jade")')
+			a.list-group-item(ng-href='#/booking', ng-click='nav("choose_done.jade", 5)')
 				| Hoàn tất đặt vé
 
 	.col-md-9

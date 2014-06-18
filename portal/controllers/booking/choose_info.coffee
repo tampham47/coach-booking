@@ -12,5 +12,6 @@ angular.module('booking-mamangement.booking')
 	$scope.guest = $rootScope.guest || {}
 
 	$scope.next = ->
+		$rootScope.current_state = 4 if $rootScope.current_state < 4
 		$rootScope.guest = $scope.guest
 		$rootScope.booking_template = 'views/booking/choose_done.jade'

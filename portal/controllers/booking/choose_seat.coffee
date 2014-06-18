@@ -51,5 +51,6 @@ angular.module('booking-mamangement.booking')
 		$scope.choose = set_seat()
 
 	$scope.next = ->
+		$rootScope.current_state = 3 if $rootScope.current_state < 3
 		$rootScope.booking.selected_seats = $scope.choose.selected_seats
 		$rootScope.booking_template = 'views/booking/choose_info.jade'

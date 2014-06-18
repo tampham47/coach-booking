@@ -5,15 +5,15 @@ html(ng-app='booking-mamangement')
 		meta(charset='UTF-8')
 		title
 			| Juddy Express
-		link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.min.css')
+		link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
 
 		//- medium-editor
-		link(rel='stylesheet', href='bower_components/medium-editor/dist/css/medium-editor.css')
-		link(rel='stylesheet', href='bower_components/medium-editor/dist/css/themes/default.css')
+		//- link(rel='stylesheet', href='bower_components/medium-editor/dist/css/medium-editor.css')
+		//- link(rel='stylesheet', href='bower_components/medium-editor/dist/css/themes/default.css')
 
-		link(rel='stylesheet', href='/bower_components/perfect-scrollbar/min/perfect-scrollbar-0.4.10.min.css')
-		link(rel='stylesheet', href='/bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css')
-		link(rel='stylesheet', href='/bower_components/angular-datepicker/dist/index.min.css')
+		link(rel='stylesheet', href='bower_components/perfect-scrollbar/min/perfect-scrollbar-0.4.10.min.css')
+		link(rel='stylesheet', href='bower_components/angular-bootstrap-datetimepicker/src/css/datetimepicker.css')
+		link(rel='stylesheet', href='bower_components/angular-datepicker/dist/index.min.css')
 
 	body(style='padding:60px 30px;')
 
@@ -35,10 +35,10 @@ html(ng-app='booking-mamangement')
 						ul.nav.navbar-nav
 							li
 								a(ng-href='#/booking')
-									b Đặt vé
+									b ĐẶT VÉ
 							li
 								a(ng-if='user.role == "admin"',
-									ng-href='#/car') Quản lý Xe
+									ng-href='#/car') Chuyến Xe
 							li
 								a(ng-if='user.role == "admin"',
 									ng-href='#/emp') Nhân viên
@@ -76,22 +76,27 @@ html(ng-app='booking-mamangement')
 				label.label.label-success #Youthstd 2014
 
 		script(src='/bower_components/jquery/dist/jquery.min.js')
-		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.js')
-		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js')
-		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-resource.min.js')
-		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-route.min.js')
-		script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-sanitize.min.js')
+		//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.js')
+		//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js')
+		//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-resource.min.js')
+		//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-route.min.js')
+		//- script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-sanitize.min.js')
+		script(src='bower_components/angular/angular.min.js')
+		script(src='bower_components/angular-animate/angular-animate.min.js')
+		script(src='bower_components/angular-resource/angular-resource.min.js')
+		script(src='bower_components/angular-route/angular-route.min.js')
+		script(src='bower_components/angular-sanitize/angular-sanitize.min.js')
 
 		script(src='bower_components/angular-http-auth/src/http-auth-interceptor.js')
 		script(src='bower_components/medium-editor/dist/js/medium-editor.js')
 		script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
 		script(src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js')
 		script(src='bower_components/underscore.string/dist/underscore.string.min.js')
-		script(src='/bower_components/perfect-scrollbar/min/perfect-scrollbar-0.4.10.with-mousewheel.min.js')
+		script(src='bower_components/perfect-scrollbar/min/perfect-scrollbar-0.4.10.with-mousewheel.min.js')
 
 		script(src='bower_components/moment/min/moment.min.js')
 		script(src='bower_components/angular-bootstrap-datetimepicker/src/js/datetimepicker.js')
 		script(src='bower_components/angular-datepicker/dist/index.min.js')
 
-		script(src='/scripts.js')
-		script(src='/templates.js')
+		script(src='scripts.js')
+		script(src='templates.js')

@@ -12,7 +12,6 @@ angular.module 'booking-mamangement', [
 	'datePicker'
 	'booking-mamangement.templates'
 
-	'booking-mamangement.account'
 	'booking-mamangement.home'
 	'booking-mamangement.route'
 	'booking-mamangement.manage'

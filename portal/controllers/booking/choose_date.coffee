@@ -40,5 +40,8 @@ angular.module('booking-mamangement.booking')
 		$scope.datepicker = get_default(d)
 
 	$scope.next = ->
+		$rootScope.current_state = 1 if $rootScope.current_state < 1 or !($rootScope.current_state?)
+		console.log 'current_state'
+		console.log $rootScope.current_state
 		$rootScope.booking = $scope.booking
 		$rootScope.booking_template = 'views/booking/choose_cars.jade'

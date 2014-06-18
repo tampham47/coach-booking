@@ -2,7 +2,12 @@
 	"name": "booking_mamagement",
 	"version": "1.0.0",
 	"dependencies": {
-		"angular": "*",
+		"angular":"1.2.0-rc.2",
+		"angular-animate": "1.2.0-rc.2",
+		"angular-resource": "1.2.0-rc.2",
+		"angular-route": "1.2.0-rc.2",
+		"angular-sanitize": "1.2.0-rc.2",
+
 		"jquery": "latest",
 		"bootstrap": "3.1.1",
 		"medium-editor": "1.6.5",
