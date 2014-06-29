@@ -3,7 +3,7 @@
 Booking = require '../models/booking'
 
 GetByCar = (_car, str_date) ->
-	Booking.find({_car: _car, str_date: str_date})
+	Booking.find({_car: _car, str_date: str_date, status: {'$ne': 'cancel' }})
 	.populate('_guest')
 	.sort({seat: 1}).exec()
 
