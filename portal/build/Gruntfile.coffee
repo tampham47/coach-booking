@@ -66,13 +66,6 @@ module.exports = (grunt) ->
 			options:
 				compile: true
 
-		# cssmin:
-		# 	all:
-		# 		src: '<%= dist %>/app/**/*.css'
-		# 		dest: '<%= dist %>/styles.css'
-		# 	options:
-		# 		keepBreaks: true
-
 		watch:
 			coffee:
 				files: ['../controllers/**/*.coffee']
@@ -102,7 +95,6 @@ module.exports = (grunt) ->
 				files: '../contents/**/*.less'
 				tasks: [
 					'recess'
-					# 'cssmin'
 				]
 				options:
 					spawn: false
@@ -150,11 +142,7 @@ module.exports = (grunt) ->
 	grunt.registerTask 'default', [
 		'coffee'
 		'mapcat'
-
 		'jade'
 		'html2js'
-
 		'recess'
-		# 'stylus'
-		# 'cssmin'
 	]
