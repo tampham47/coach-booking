@@ -2,3 +2,5 @@
 /portal/bower_components
 
 /services/node_modules
+node_modules
+public
